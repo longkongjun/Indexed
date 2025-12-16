@@ -22,7 +22,7 @@ interface MangaApi {
     @GET("manga/{id}")
     suspend fun getMangaById(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<Manga>>
     
     /**
      * 获取漫画完整信息
@@ -34,7 +34,7 @@ interface MangaApi {
     @GET("manga/{id}/full")
     suspend fun getMangaFullById(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<Manga>>
     
     /**
      * 获取漫画角色信息
@@ -45,7 +45,7 @@ interface MangaApi {
     @GET("manga/{id}/characters")
     suspend fun getMangaCharacters(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<MangaCharacter>>>
     
     /**
      * 获取漫画新闻列表
@@ -58,7 +58,7 @@ interface MangaApi {
     suspend fun getMangaNews(
         @Path("id") id: Int,
         @Query("page") page: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<MangaNews>>
     
     /**
      * 获取漫画论坛话题
@@ -71,7 +71,7 @@ interface MangaApi {
     suspend fun getMangaForum(
         @Path("id") id: Int,
         @Query("filter") filter: String? = null
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<ForumTopic>>>
     
     /**
      * 获取漫画图片集
@@ -82,7 +82,7 @@ interface MangaApi {
     @GET("manga/{id}/pictures")
     suspend fun getMangaPictures(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<ForumTopic>>>
     
     /**
      * 获取漫画统计信息
@@ -94,7 +94,7 @@ interface MangaApi {
     @GET("manga/{id}/statistics")
     suspend fun getMangaStatistics(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<List<MangaPicture>>>
     
     /**
      * 获取漫画更多信息
@@ -105,7 +105,7 @@ interface MangaApi {
     @GET("manga/{id}/moreinfo")
     suspend fun getMangaMoreInfo(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<MangaStatistics>>
     
     /**
      * 获取漫画推荐列表
@@ -116,7 +116,7 @@ interface MangaApi {
     @GET("manga/{id}/recommendations")
     suspend fun getMangaRecommendations(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<String>>
     
     /**
      * 获取漫画用户更新
@@ -129,7 +129,7 @@ interface MangaApi {
     suspend fun getMangaUserUpdates(
         @Path("id") id: Int,
         @Query("page") page: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Manga>>
     
     /**
      * 获取漫画评论列表
@@ -146,7 +146,7 @@ interface MangaApi {
         @Query("page") page: Int? = null,
         @Query("preliminary") preliminary: Boolean? = null,
         @Query("spoiler") spoiler: Boolean? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<List<MangaCharacter>>>
     
     /**
      * 获取漫画关系
@@ -158,7 +158,7 @@ interface MangaApi {
     @GET("manga/{id}/relations")
     suspend fun getMangaRelations(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<Recommendation>>>
     
     /**
      * 获取漫画外部链接
@@ -169,7 +169,7 @@ interface MangaApi {
     @GET("manga/{id}/external")
     suspend fun getMangaExternal(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<UserUpdate>>
     
     /**
      * 搜索漫画
@@ -204,6 +204,6 @@ interface MangaApi {
         @Query("letter") letter: String? = null,
         @Query("page") page: Int? = null,
         @Query("limit") limit: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<MangaNews>>
 }
 

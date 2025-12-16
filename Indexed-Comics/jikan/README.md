@@ -502,26 +502,70 @@
 ### 依赖配置
 
 本模块使用以下库：
-- **Retrofit 2.9.0** - 网络请求框架
-- **OkHttp 4.12.0** - HTTP 客户端
-- **Gson 2.10.1** - JSON 解析
+- **Retrofit 3.0.0** - 网络请求框架
+- **OkHttp 5.3.2** - HTTP 客户端
+- **Kotlin Serialization 1.9.0** - JSON 序列化
+- **Kotlin Coroutines 1.10.2** - 协程支持
 
 ### 基本用法
 
 ```kotlin
 // 获取 API 服务实例
-val jikanApi = JikanApiClient.getApiService()
+val animeApi = JikanApiClient.animeApi
 
-// 调用接口
-val response = jikanApi.getAnimeById(1)
+// 调用接口（所有方法返回 Result）
+lifecycleScope.launch {
+    animeApi.getAnimeById(1)
+        .onSuccess { response ->
+            // 处理成功响应
+            val anime = response.data
+            println("动漫标题: ${anime?.title}")
+        }
+        .onFailure { exception ->
+            // 处理错误
+            println("请求失败: ${exception.message}")
+        }
+}
 ```
+
+### Result 错误处理
+
+所有 API 方法都返回 `Result<T>`，提供了丰富的错误处理扩展：
+
+```kotlin
+// 基础用法
+animeApi.getAnimeById(1)
+    .onSuccess { response -> /* 成功处理 */ }
+    .onFailure { error -> /* 失败处理 */ }
+
+// HTTP 错误处理
+animeApi.getAnimeById(1)
+    .onHttpError { httpException ->
+        when (httpException.code()) {
+            404 -> println("动漫不存在")
+            429 -> println("请求过于频繁")
+            else -> println("HTTP 错误: ${httpException.code()}")
+        }
+    }
+    .onNetworkError { ioException ->
+        println("网络连接失败")
+    }
+
+// 数据转换
+val title = animeApi.getAnimeById(1)
+    .mapResult { response -> response.data?.title }
+    .getOrDefault("未知标题")
+```
+
+更多使用示例请参考 `examples/UsageExamples.kt`。
 
 ### 注意事项
 
 1. **限流规则**: Jikan API 有请求频率限制，请合理使用
-2. **错误处理**: 请妥善处理网络错误和 API 错误
+2. **错误处理**: 使用 Result 的扩展方法进行完善的错误处理
 3. **数据缓存**: 建议对数据进行本地缓存以提升性能
-4. **协程支持**: 所有接口方法都支持 Kotlin 协程
+4. **协程支持**: 所有接口方法都是 suspend 函数，需在协程作用域中调用
+5. **可空字段**: 部分数据类字段可能为 null，请注意空安全处理
 
 ## 许可证
 

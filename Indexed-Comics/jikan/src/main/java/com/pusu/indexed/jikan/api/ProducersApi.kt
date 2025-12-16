@@ -31,7 +31,7 @@ interface ProducersApi {
         @Query("order_by") orderBy: String? = null,
         @Query("sort") sort: String? = null,
         @Query("letter") letter: String? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Producer>>
     
     /**
      * 获取制作公司基本信息
@@ -42,7 +42,7 @@ interface ProducersApi {
     @GET("producers/{id}")
     suspend fun getProducerById(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<Producer>>
     
     /**
      * 获取制作公司完整信息
@@ -53,7 +53,7 @@ interface ProducersApi {
     @GET("producers/{id}/full")
     suspend fun getProducerFullById(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<Producer>>
     
     /**
      * 获取制作公司外部链接
@@ -64,6 +64,6 @@ interface ProducersApi {
     @GET("producers/{id}/external")
     suspend fun getProducerExternal(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<ExternalLink>>>
 }
 

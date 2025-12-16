@@ -99,9 +99,9 @@ class ResultCallAdapterFactory : CallAdapter.Factory() {
         }
         
         override fun execute(): Response<Result<R>> {
-            return try {
+            return runCatching {
                 val response = delegate.execute()
-                val result = if (response.isSuccessful) {
+                if (response.isSuccessful) {
                     val body = response.body()
                     if (body != null) {
                         Result.success(body)
@@ -117,10 +117,10 @@ class ResultCallAdapterFactory : CallAdapter.Factory() {
                         )
                     )
                 }
-                Response.success(result)
-            } catch (e: Exception) {
-                Response.success(Result.failure(e))
-            }
+            }.fold(
+                onSuccess = { result -> Response.success(result) },
+                onFailure = { exception -> Response.success(Result.failure(exception)) }
+            )
         }
         
         override fun clone(): Call<Result<R>> = ResultCall(delegate.clone())

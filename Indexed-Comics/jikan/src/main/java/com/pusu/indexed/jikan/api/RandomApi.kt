@@ -20,7 +20,7 @@ interface RandomApi {
      * @return 动漫信息响应
      */
     @GET("random/anime")
-    suspend fun getRandomAnime(): Result<JikanResponse<>>
+    suspend fun getRandomAnime(): Result<JikanResponse<Anime>>
     
     /**
      * 获取随机漫画
@@ -28,7 +28,7 @@ interface RandomApi {
      * @return 漫画信息响应
      */
     @GET("random/manga")
-    suspend fun getRandomManga(): Result<JikanResponse<>>
+    suspend fun getRandomManga(): Result<JikanResponse<Manga>>
     
     /**
      * 获取随机角色
@@ -36,7 +36,7 @@ interface RandomApi {
      * @return 角色信息响应
      */
     @GET("random/characters")
-    suspend fun getRandomCharacter(): Result<JikanResponse<>>
+    suspend fun getRandomCharacter(): Result<JikanResponse<Character>>
     
     /**
      * 获取随机人物
@@ -44,7 +44,7 @@ interface RandomApi {
      * @return 人物信息响应
      */
     @GET("random/people")
-    suspend fun getRandomPerson(): Result<JikanResponse<>>
+    suspend fun getRandomPerson(): Result<JikanResponse<Person>>
     
     /**
      * 获取随机用户
@@ -52,6 +52,6 @@ interface RandomApi {
      * @return 用户信息响应
      */
     @GET("random/users")
-    suspend fun getRandomUser(): Result<JikanResponse<>>
+    suspend fun getRandomUser(): Result<JikanResponse<User>>
 }
 

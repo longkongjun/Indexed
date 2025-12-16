@@ -21,7 +21,7 @@ interface PeopleApi {
     @GET("people/{id}")
     suspend fun getPersonById(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<Person>>
     
     /**
      * 获取人物完整信息
@@ -33,7 +33,7 @@ interface PeopleApi {
     @GET("people/{id}/full")
     suspend fun getPersonFullById(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<Person>>
     
     /**
      * 获取人物动漫作品列表
@@ -44,7 +44,7 @@ interface PeopleApi {
     @GET("people/{id}/anime")
     suspend fun getPersonAnime(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<PersonAnimeEntry>>>
     
     /**
      * 获取人物配音角色列表
@@ -55,7 +55,7 @@ interface PeopleApi {
     @GET("people/{id}/voices")
     suspend fun getPersonVoices(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<PersonVoiceRole>>>
     
     /**
      * 获取人物漫画作品列表
@@ -66,7 +66,7 @@ interface PeopleApi {
     @GET("people/{id}/manga")
     suspend fun getPersonManga(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<PersonMangaEntry>>>
     
     /**
      * 获取人物图片集
@@ -77,7 +77,7 @@ interface PeopleApi {
     @GET("people/{id}/pictures")
     suspend fun getPersonPictures(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<PersonPicture>>>
     
     /**
      * 搜索人物
@@ -98,6 +98,6 @@ interface PeopleApi {
         @Query("order_by") orderBy: String? = null,
         @Query("sort") sort: String? = null,
         @Query("letter") letter: String? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Person>>
 }
 

@@ -31,7 +31,7 @@ interface MagazinesApi {
         @Query("order_by") orderBy: String? = null,
         @Query("sort") sort: String? = null,
         @Query("letter") letter: String? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Magazine>>
     
     /**
      * 获取杂志详情
@@ -42,6 +42,6 @@ interface MagazinesApi {
     @GET("magazines/{id}")
     suspend fun getMagazineById(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<Magazine>>
 }
 

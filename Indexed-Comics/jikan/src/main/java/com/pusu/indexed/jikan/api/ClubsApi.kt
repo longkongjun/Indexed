@@ -35,7 +35,7 @@ interface ClubsApi {
         @Query("order_by") orderBy: String? = null,
         @Query("sort") sort: String? = null,
         @Query("letter") letter: String? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Club>>
     
     /**
      * 获取俱乐部详情
@@ -46,7 +46,7 @@ interface ClubsApi {
     @GET("clubs/{id}")
     suspend fun getClubById(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<Club>>
     
     /**
      * 获取俱乐部成员列表
@@ -59,7 +59,7 @@ interface ClubsApi {
     suspend fun getClubMembers(
         @Path("id") id: Int,
         @Query("page") page: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Club>>
     
     /**
      * 获取俱乐部工作人员列表
@@ -70,7 +70,7 @@ interface ClubsApi {
     @GET("clubs/{id}/staff")
     suspend fun getClubStaff(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<Club>>
     
     /**
      * 获取俱乐部关系
@@ -81,6 +81,6 @@ interface ClubsApi {
     @GET("clubs/{id}/relations")
     suspend fun getClubRelations(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<ClubMember>>
 }
 

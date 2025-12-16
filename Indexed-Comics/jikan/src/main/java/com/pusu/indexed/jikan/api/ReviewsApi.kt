@@ -27,7 +27,7 @@ interface ReviewsApi {
         @Query("type") type: String? = null,
         @Query("preliminary") preliminary: Boolean? = null,
         @Query("spoiler") spoiler: Boolean? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<AnimeReview>>
     
     /**
      * 获取最新漫画评论
@@ -44,6 +44,6 @@ interface ReviewsApi {
         @Query("type") type: String? = null,
         @Query("preliminary") preliminary: Boolean? = null,
         @Query("spoiler") spoiler: Boolean? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<MangaReview>>
 }
 

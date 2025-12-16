@@ -19,7 +19,7 @@ interface RecommendationsApi {
     @GET("recommendations/anime")
     suspend fun getRecentAnimeRecommendations(
         @Query("page") page: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Recommendation>>
     
     /**
      * 获取最新漫画推荐
@@ -30,6 +30,6 @@ interface RecommendationsApi {
     @GET("recommendations/manga")
     suspend fun getRecentMangaRecommendations(
         @Query("page") page: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Recommendation>>
 }
 

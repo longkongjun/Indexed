@@ -22,7 +22,7 @@ interface UsersApi {
     @GET("users/{username}")
     suspend fun getUserByUsername(
         @Path("username") username: String
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<User>>
     
     /**
      * 获取用户完整信息
@@ -33,7 +33,7 @@ interface UsersApi {
     @GET("users/{username}/full")
     suspend fun getUserFullByUsername(
         @Path("username") username: String
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<User>>
     
     /**
      * 获取用户统计信息
@@ -44,7 +44,7 @@ interface UsersApi {
     @GET("users/{username}/statistics")
     suspend fun getUserStatistics(
         @Path("username") username: String
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<UserStatistics>>
     
     /**
      * 获取用户收藏
@@ -55,7 +55,7 @@ interface UsersApi {
     @GET("users/{username}/favorites")
     suspend fun getUserFavorites(
         @Path("username") username: String
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<UserFavorites>>
     
     /**
      * 获取用户更新
@@ -66,7 +66,7 @@ interface UsersApi {
     @GET("users/{username}/updates")
     suspend fun getUserUpdates(
         @Path("username") username: String
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<UserUpdate>>
     
     /**
      * 获取用户关于
@@ -77,7 +77,7 @@ interface UsersApi {
     @GET("users/{username}/about")
     suspend fun getUserAbout(
         @Path("username") username: String
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<String>>
     
     /**
      * 获取用户评论
@@ -90,7 +90,7 @@ interface UsersApi {
     suspend fun getUserReviews(
         @Path("username") username: String,
         @Query("page") page: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<AnimeReview>>
     
     /**
      * 获取用户推荐
@@ -101,7 +101,7 @@ interface UsersApi {
     @GET("users/{username}/recommendations")
     suspend fun getUserRecommendations(
         @Path("username") username: String
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<AnimeReview>>
     
     /**
      * 获取用户俱乐部
@@ -114,7 +114,7 @@ interface UsersApi {
     suspend fun getUserClubs(
         @Path("username") username: String,
         @Query("page") page: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<User>>
     
     /**
      * 获取用户外部链接
@@ -125,7 +125,7 @@ interface UsersApi {
     @GET("users/{username}/external")
     suspend fun getUserExternal(
         @Path("username") username: String
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<Recommendation>>>
     
     /**
      * 获取用户好友
@@ -138,7 +138,7 @@ interface UsersApi {
     suspend fun getUserFriends(
         @Path("username") username: String,
         @Query("page") page: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<UserStatistics>>
     
     /**
      * 获取用户历史
@@ -151,7 +151,7 @@ interface UsersApi {
     suspend fun getUserHistory(
         @Path("username") username: String,
         @Query("type") type: String? = null
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<MalUrl>>
     
     /**
      * 搜索用户
@@ -166,6 +166,6 @@ interface UsersApi {
         @Query("q") query: String? = null,
         @Query("page") page: Int? = null,
         @Query("limit") limit: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<UserFavorites>>
 }
 

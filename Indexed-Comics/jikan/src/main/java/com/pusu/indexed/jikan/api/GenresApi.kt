@@ -19,7 +19,7 @@ interface GenresApi {
     @GET("genres/anime")
     suspend fun getAnimeGenres(
         @Query("filter") filter: String? = null
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<MalUrl>>>
     
     /**
      * 获取漫画类型列表
@@ -30,6 +30,6 @@ interface GenresApi {
     @GET("genres/manga")
     suspend fun getMangaGenres(
         @Query("filter") filter: String? = null
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<MalUrl>>>
 }
 

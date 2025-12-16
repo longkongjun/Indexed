@@ -32,7 +32,7 @@ interface SeasonsApi {
         @Query("limit") limit: Int? = null,
         @Query("filter") filter: String? = null,
         @Query("sfw") sfw: Boolean? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Anime>>
     
     /**
      * 获取当前季度动漫列表
@@ -49,7 +49,7 @@ interface SeasonsApi {
         @Query("limit") limit: Int? = null,
         @Query("filter") filter: String? = null,
         @Query("sfw") sfw: Boolean? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Anime>>
     
     /**
      * 获取即将播出动漫列表
@@ -66,7 +66,7 @@ interface SeasonsApi {
         @Query("limit") limit: Int? = null,
         @Query("filter") filter: String? = null,
         @Query("sfw") sfw: Boolean? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Anime>>
     
     /**
      * 获取所有可用季度列表
@@ -74,6 +74,6 @@ interface SeasonsApi {
      * @return 季度列表响应
      */
     @GET("seasons")
-    suspend fun getSeasonsList(): Result<JikanPageResponse<>>
+    suspend fun getSeasonsList(): Result<JikanPageResponse<Season>>
 }
 

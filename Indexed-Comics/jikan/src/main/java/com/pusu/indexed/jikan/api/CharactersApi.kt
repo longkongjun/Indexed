@@ -21,7 +21,7 @@ interface CharactersApi {
     @GET("characters/{id}")
     suspend fun getCharacterById(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<Character>>
     
     /**
      * 获取角色完整信息
@@ -33,7 +33,7 @@ interface CharactersApi {
     @GET("characters/{id}/full")
     suspend fun getCharacterFullById(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>
+    ): Result<JikanResponse<Character>>
     
     /**
      * 获取角色动漫出演列表
@@ -44,7 +44,7 @@ interface CharactersApi {
     @GET("characters/{id}/anime")
     suspend fun getCharacterAnime(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<CharacterAnimeEntry>>>
     
     /**
      * 获取角色漫画出现列表
@@ -55,7 +55,7 @@ interface CharactersApi {
     @GET("characters/{id}/manga")
     suspend fun getCharacterManga(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<CharacterMangaEntry>>>
     
     /**
      * 获取角色声优列表
@@ -66,7 +66,7 @@ interface CharactersApi {
     @GET("characters/{id}/voices")
     suspend fun getCharacterVoices(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<CharacterVoiceActor>>>
     
     /**
      * 获取角色图片集
@@ -77,7 +77,7 @@ interface CharactersApi {
     @GET("characters/{id}/pictures")
     suspend fun getCharacterPictures(
         @Path("id") id: Int
-    ): Result<JikanResponse<>>>
+    ): Result<JikanResponse<List<CharacterPicture>>>
     
     /**
      * 搜索角色
@@ -98,6 +98,6 @@ interface CharactersApi {
         @Query("order_by") orderBy: String? = null,
         @Query("sort") sort: String? = null,
         @Query("letter") letter: String? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Character>>
 }
 

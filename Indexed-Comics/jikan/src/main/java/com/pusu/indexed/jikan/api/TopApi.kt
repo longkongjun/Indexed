@@ -30,7 +30,7 @@ interface TopApi {
         @Query("filter") filter: String? = null,
         @Query("page") page: Int? = null,
         @Query("limit") limit: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Anime>>
     
     /**
      * 获取漫画排行榜
@@ -47,7 +47,7 @@ interface TopApi {
         @Query("filter") filter: String? = null,
         @Query("page") page: Int? = null,
         @Query("limit") limit: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Manga>>
     
     /**
      * 获取角色排行榜
@@ -60,7 +60,7 @@ interface TopApi {
     suspend fun getTopCharacters(
         @Query("page") page: Int? = null,
         @Query("limit") limit: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Character>>
     
     /**
      * 获取人物排行榜
@@ -73,7 +73,7 @@ interface TopApi {
     suspend fun getTopPeople(
         @Query("page") page: Int? = null,
         @Query("limit") limit: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Person>>
     
     /**
      * 获取评论排行榜
@@ -86,6 +86,6 @@ interface TopApi {
     suspend fun getTopReviews(
         @Query("page") page: Int? = null,
         @Query("limit") limit: Int? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<AnimeReview>>
 }
 

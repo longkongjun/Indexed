@@ -1,8 +1,8 @@
 package com.pusu.indexed.jikan.models.club
 
-import com.pusu.indexed.jikan.models.anime.AnimeMeta
-import com.pusu.indexed.jikan.models.character.CharacterMeta
+import com.pusu.indexed.jikan.models.character.AnimeMeta
 import com.pusu.indexed.jikan.models.character.MangaMeta
+import com.pusu.indexed.jikan.models.anime.CharacterMeta
 import com.pusu.indexed.jikan.models.common.*
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

@@ -28,6 +28,6 @@ interface SchedulesApi {
         @Query("limit") limit: Int? = null,
         @Query("kids") kids: Boolean? = null,
         @Query("sfw") sfw: Boolean? = null
-    ): Result<JikanPageResponse<>>
+    ): Result<JikanPageResponse<Anime>>
 }
 

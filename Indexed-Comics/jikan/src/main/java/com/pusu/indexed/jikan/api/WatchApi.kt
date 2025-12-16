@@ -16,7 +16,7 @@ interface WatchApi {
      * @return 宣传视频列表响应
      */
     @GET("watch/promos")
-    suspend fun getRecentPromos(): Result<JikanResponse<>>>
+    suspend fun getRecentPromos(): Result<JikanResponse<List<RecentPromoVideo>>>
     
     /**
      * 获取最近添加的剧集视频
@@ -24,7 +24,7 @@ interface WatchApi {
      * @return 剧集视频列表响应
      */
     @GET("watch/episodes")
-    suspend fun getRecentEpisodes(): Result<JikanResponse<>>>
+    suspend fun getRecentEpisodes(): Result<JikanResponse<List<RecentEpisodeVideo>>>
     
     /**
      * 获取热门宣传视频
@@ -32,6 +32,6 @@ interface WatchApi {
      * @return 宣传视频列表响应
      */
     @GET("watch/promos/popular")
-    suspend fun getPopularPromos(): Result<JikanResponse<>>>
+    suspend fun getPopularPromos(): Result<JikanResponse<List<RecentPromoVideo>>>
 }
 
