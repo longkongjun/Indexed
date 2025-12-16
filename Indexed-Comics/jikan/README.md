@@ -557,8 +557,6 @@ val title = animeApi.getAnimeById(1)
     .getOrDefault("未知标题")
 ```
 
-更多使用示例请参考 `examples/UsageExamples.kt`。
-
 ### 注意事项
 
 1. **限流规则**: Jikan API 有请求频率限制，请合理使用
@@ -566,6 +564,21 @@ val title = animeApi.getAnimeById(1)
 3. **数据缓存**: 建议对数据进行本地缓存以提升性能
 4. **协程支持**: 所有接口方法都是 suspend 函数，需在协程作用域中调用
 5. **可空字段**: 部分数据类字段可能为 null，请注意空安全处理
+
+## 详细文档
+
+### 核心文档
+- **[Result 使用指南](docs/RESULT_USAGE.md)** - Result 类型的完整使用说明
+- **[Result 合并示例](docs/RESULT_COMBINE_EXAMPLES.md)** - 合并多个 Result 的实战示例
+- **[字段分类说明](docs/FIELD_CLASSIFICATION.md)** - 数据模型字段的可空性分类
+
+### 开发文档
+- **[API 泛型修复记录](docs/API_GENERICS_FIX.md)** - API 泛型类型修复的详细过程
+- **[runCatching 迁移记录](docs/RUNCATCHING_MIGRATION.md)** - try-catch 到 runCatching 的迁移说明
+
+### 设计文档
+- **[combineAll API 设计](docs/COMBINEALL_API_DESIGN.md)** - combineAll 方法的 API 设计分析
+- **[combineAll 性能优化](docs/COMBINEALL_OPTIMIZATION.md)** - combineAll 方法的性能优化说明
 
 ## 许可证
 
