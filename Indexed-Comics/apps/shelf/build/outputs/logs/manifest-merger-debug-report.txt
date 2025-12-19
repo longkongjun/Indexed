@@ -1,0 +1,382 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:2:1-22:12
+MERGED from [androidx.navigationevent:navigationevent-android:1.0.1] /Users/longkongjun/.gradle/caches/8.13/transforms/8a05689bc0640850b0aed17508ed4ec5/transformed/navigationevent/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigationevent:navigationevent-compose-android:1.0.1] /Users/longkongjun/.gradle/caches/8.13/transforms/0a4d4caa82694447222872e00655a494/transformed/navigationevent-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b068255db4b4c907f30a042d2a695372/transformed/material3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6576dbaff2aa3b8a4ad63200ab36dbf3/transformed/material/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/f91aa334dfa625084fa0ce6eac56e000/transformed/material-ripple/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/918aa46b1c1e22caea792a59310276fc/transformed/foundation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/488a3908dbe2c0acceb24cfbe551b409/transformed/animation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/649d1e79e22b35542134ec193b9212ae/transformed/foundation-layout/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/ddc77b627a176892420cc2cddd0d8213/transformed/animation-core/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/55213dfaddb1860c040a28a3ad342e3f/transformed/ui-tooling-data/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/c47a0d42b0902204a0f73ccab745f540/transformed/ui-unit/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/0d00471ddb4041078d345ea544566607/transformed/ui-geometry/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6eccfebcc3d03bcc8c4c1a80ff384d71/transformed/ui-util/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/0e12ac2ba1e80225084d6de1fa80e8ae/transformed/ui-text/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/a5ef26b3c09afcf74da7d762a42b6a69/transformed/ui-tooling-preview/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/dbaf6ec9a1c39ec94da91a02d06b1f3a/transformed/ui-tooling/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b4760aad21c0c16e1929af8e08df0d6a/transformed/ui-graphics/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/3d74321e1a03c29eda4c653f9dab9d81/transformed/ui/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b0984311ff2596612a1e4dc41a1d3026/transformed/ui-test-manifest-1.10.0/AndroidManifest.xml:17:1-29:12
+MERGED from [androidx.activity:activity-ktx:1.12.1] /Users/longkongjun/.gradle/caches/8.13/transforms/402bf139fba3f60055a109d9c25d9d08/transformed/activity-ktx-1.12.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.12.1] /Users/longkongjun/.gradle/caches/8.13/transforms/60af1a453d11a6d5eb3647f5153c0915/transformed/activity-1.12.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-compose:1.12.1] /Users/longkongjun/.gradle/caches/8.13/transforms/31dfc4f97851907259482e32d3a38d19/transformed/activity-compose-1.12.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/f7a16714c126f02b0dbdf7a61657f546/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.6.0] /Users/longkongjun/.gradle/caches/8.13/transforms/bbcfc4b97465d829340641733165d017/transformed/transition-1.6.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.window:window-core-android:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/06e86b40b361d61fe51590d09f491880/transformed/window-core/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/longkongjun/.gradle/caches/8.13/transforms/dae4205c33ebc43bf4d99415fbc75742/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e339c29b8dee45f5f05b3d87454bc953/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27f55d01768376e43ae4522c21218ea4/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/ff6157eccd49031a6acba8eebcb9516e/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.compose.runtime:runtime-retain-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/4e57094e632d01a06e48e9ec25720283/transformed/runtime-retain/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb22ed6758f106dfe0fb611a63a9c91/transformed/runtime-annotation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eb929c13385d9e55816f37bb1b8c2bca/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/a41a0a6b1b26ae970773433455760e48/transformed/savedstate/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/29a75d6cc45730dd802a68980a5f068d/transformed/savedstate-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/c737f985b08cce5babc3818b6963555b/transformed/runtime/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/37ae144c822c29f68b607502dd7cfb2e/transformed/runtime-saveable/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/43f18292d204127140178d2d9a452922/transformed/lifecycle-livedata-core-ktx-2.10.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eccb7fb08bedb053c7e386647925e734/transformed/lifecycle-livedata-2.10.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/507de39765626f25898f158b92a79533/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/69a24b9a739a2a9e7c971f15ee459ba6/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b01562d835fb2b590fb8d521c2d51e40/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/fa110a2b5c0b29a5b0b880644e93e887/transformed/lifecycle-viewmodel-2.10.0/AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/029067101595984e51832c6c86c2689c/transformed/lifecycle-viewmodel/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/be9e2cfbc1a0cee916b02a6b5ff7ed9b/transformed/lifecycle-runtime-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/c7badbb493bdbed6945301fb3e7790b1/transformed/lifecycle-runtime/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/651d690a83d9de73d0c434e8a6d856a5/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/293942c617ea49197dfcad670b02bea6/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/7dae229f11588dfa3a0c58e617344a1a/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/a9221a4aa3202eef80677c44b86167d9/transformed/core-ktx-1.17.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/longkongjun/.gradle/caches/8.13/transforms/9b99a5cf4edf369a07558388e613c618/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5488440911492c74827d36661e302f5b/transformed/core-viewtree-1.0.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/d913c95cb225fa8954e5ae4e1d0d0fa4/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/d379ad6f48e71bf0bf76e7a770f335c3/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/longkongjun/.gradle/caches/8.13/transforms/685be9a61d05509e41fbd4ef30163682/transformed/tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/cce4d67181abe0f7d87aa7b9052f3ba2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/longkongjun/.gradle/caches/8.13/transforms/184d747e1a651b687c84c9c3d1219ac9/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/21dd484d72ec9a612704b38b75e713bc/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/abe0b46f95738d35790d6bf17b5cbcac/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/66c0a641164bdc30a397f7329848a3fd/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+	package
+		INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:4:5-20:19
+INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:4:5-20:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/dbaf6ec9a1c39ec94da91a02d06b1f3a/transformed/ui-tooling/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/dbaf6ec9a1c39ec94da91a02d06b1f3a/transformed/ui-tooling/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b0984311ff2596612a1e4dc41a1d3026/transformed/ui-test-manifest-1.10.0/AndroidManifest.xml:22:5-27:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b0984311ff2596612a1e4dc41a1d3026/transformed/ui-test-manifest-1.10.0/AndroidManifest.xml:22:5-27:19
+MERGED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:22:5-29:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/507de39765626f25898f158b92a79533/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/507de39765626f25898f158b92a79533/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/d379ad6f48e71bf0bf76e7a770f335c3/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/d379ad6f48e71bf0bf76e7a770f335c3/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/cce4d67181abe0f7d87aa7b9052f3ba2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/cce4d67181abe0f7d87aa7b9052f3ba2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:9:9-35
+	android:label
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:7:9-41
+	android:roundIcon
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:8:9-54
+	android:icon
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:6:9-43
+	android:allowBackup
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:5:9-35
+	android:theme
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:10:9-43
+activity#com.pusu.indexed.shelf.MainActivity
+ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:11:9-19:20
+	android:exported
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:13:13-36
+	android:theme
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:14:13-47
+	android:name
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:12:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:15:13-18:29
+action#android.intent.action.MAIN
+ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:16:17-69
+	android:name
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:16:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:17:17-77
+	android:name
+		ADDED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml:17:27-74
+uses-sdk
+INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml
+INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml
+MERGED from [androidx.navigationevent:navigationevent-android:1.0.1] /Users/longkongjun/.gradle/caches/8.13/transforms/8a05689bc0640850b0aed17508ed4ec5/transformed/navigationevent/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-android:1.0.1] /Users/longkongjun/.gradle/caches/8.13/transforms/8a05689bc0640850b0aed17508ed4ec5/transformed/navigationevent/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-compose-android:1.0.1] /Users/longkongjun/.gradle/caches/8.13/transforms/0a4d4caa82694447222872e00655a494/transformed/navigationevent-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigationevent:navigationevent-compose-android:1.0.1] /Users/longkongjun/.gradle/caches/8.13/transforms/0a4d4caa82694447222872e00655a494/transformed/navigationevent-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b068255db4b4c907f30a042d2a695372/transformed/material3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b068255db4b4c907f30a042d2a695372/transformed/material3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6576dbaff2aa3b8a4ad63200ab36dbf3/transformed/material/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6576dbaff2aa3b8a4ad63200ab36dbf3/transformed/material/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/f91aa334dfa625084fa0ce6eac56e000/transformed/material-ripple/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/f91aa334dfa625084fa0ce6eac56e000/transformed/material-ripple/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/918aa46b1c1e22caea792a59310276fc/transformed/foundation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/918aa46b1c1e22caea792a59310276fc/transformed/foundation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/488a3908dbe2c0acceb24cfbe551b409/transformed/animation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/488a3908dbe2c0acceb24cfbe551b409/transformed/animation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/649d1e79e22b35542134ec193b9212ae/transformed/foundation-layout/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/649d1e79e22b35542134ec193b9212ae/transformed/foundation-layout/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/ddc77b627a176892420cc2cddd0d8213/transformed/animation-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/ddc77b627a176892420cc2cddd0d8213/transformed/animation-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/55213dfaddb1860c040a28a3ad342e3f/transformed/ui-tooling-data/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/55213dfaddb1860c040a28a3ad342e3f/transformed/ui-tooling-data/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/c47a0d42b0902204a0f73ccab745f540/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/c47a0d42b0902204a0f73ccab745f540/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/0d00471ddb4041078d345ea544566607/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/0d00471ddb4041078d345ea544566607/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6eccfebcc3d03bcc8c4c1a80ff384d71/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6eccfebcc3d03bcc8c4c1a80ff384d71/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/0e12ac2ba1e80225084d6de1fa80e8ae/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/0e12ac2ba1e80225084d6de1fa80e8ae/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/a5ef26b3c09afcf74da7d762a42b6a69/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/a5ef26b3c09afcf74da7d762a42b6a69/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/dbaf6ec9a1c39ec94da91a02d06b1f3a/transformed/ui-tooling/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/dbaf6ec9a1c39ec94da91a02d06b1f3a/transformed/ui-tooling/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b4760aad21c0c16e1929af8e08df0d6a/transformed/ui-graphics/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b4760aad21c0c16e1929af8e08df0d6a/transformed/ui-graphics/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/3d74321e1a03c29eda4c653f9dab9d81/transformed/ui/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/3d74321e1a03c29eda4c653f9dab9d81/transformed/ui/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b0984311ff2596612a1e4dc41a1d3026/transformed/ui-test-manifest-1.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b0984311ff2596612a1e4dc41a1d3026/transformed/ui-test-manifest-1.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.12.1] /Users/longkongjun/.gradle/caches/8.13/transforms/402bf139fba3f60055a109d9c25d9d08/transformed/activity-ktx-1.12.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.12.1] /Users/longkongjun/.gradle/caches/8.13/transforms/402bf139fba3f60055a109d9c25d9d08/transformed/activity-ktx-1.12.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.12.1] /Users/longkongjun/.gradle/caches/8.13/transforms/60af1a453d11a6d5eb3647f5153c0915/transformed/activity-1.12.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.12.1] /Users/longkongjun/.gradle/caches/8.13/transforms/60af1a453d11a6d5eb3647f5153c0915/transformed/activity-1.12.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-compose:1.12.1] /Users/longkongjun/.gradle/caches/8.13/transforms/31dfc4f97851907259482e32d3a38d19/transformed/activity-compose-1.12.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.12.1] /Users/longkongjun/.gradle/caches/8.13/transforms/31dfc4f97851907259482e32d3a38d19/transformed/activity-compose-1.12.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/f7a16714c126f02b0dbdf7a61657f546/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/f7a16714c126f02b0dbdf7a61657f546/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.6.0] /Users/longkongjun/.gradle/caches/8.13/transforms/bbcfc4b97465d829340641733165d017/transformed/transition-1.6.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.transition:transition:1.6.0] /Users/longkongjun/.gradle/caches/8.13/transforms/bbcfc4b97465d829340641733165d017/transformed/transition-1.6.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window:window-core-android:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/06e86b40b361d61fe51590d09f491880/transformed/window-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window:window-core-android:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/06e86b40b361d61fe51590d09f491880/transformed/window-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/longkongjun/.gradle/caches/8.13/transforms/dae4205c33ebc43bf4d99415fbc75742/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/longkongjun/.gradle/caches/8.13/transforms/dae4205c33ebc43bf4d99415fbc75742/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e339c29b8dee45f5f05b3d87454bc953/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e339c29b8dee45f5f05b3d87454bc953/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27f55d01768376e43ae4522c21218ea4/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27f55d01768376e43ae4522c21218ea4/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/ff6157eccd49031a6acba8eebcb9516e/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/ff6157eccd49031a6acba8eebcb9516e/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.runtime:runtime-retain-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/4e57094e632d01a06e48e9ec25720283/transformed/runtime-retain/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-retain-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/4e57094e632d01a06e48e9ec25720283/transformed/runtime-retain/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb22ed6758f106dfe0fb611a63a9c91/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb22ed6758f106dfe0fb611a63a9c91/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eb929c13385d9e55816f37bb1b8c2bca/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eb929c13385d9e55816f37bb1b8c2bca/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/a41a0a6b1b26ae970773433455760e48/transformed/savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/a41a0a6b1b26ae970773433455760e48/transformed/savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/29a75d6cc45730dd802a68980a5f068d/transformed/savedstate-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/29a75d6cc45730dd802a68980a5f068d/transformed/savedstate-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/c737f985b08cce5babc3818b6963555b/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/c737f985b08cce5babc3818b6963555b/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/37ae144c822c29f68b607502dd7cfb2e/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/37ae144c822c29f68b607502dd7cfb2e/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/43f18292d204127140178d2d9a452922/transformed/lifecycle-livedata-core-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/43f18292d204127140178d2d9a452922/transformed/lifecycle-livedata-core-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eccb7fb08bedb053c7e386647925e734/transformed/lifecycle-livedata-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eccb7fb08bedb053c7e386647925e734/transformed/lifecycle-livedata-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/507de39765626f25898f158b92a79533/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/507de39765626f25898f158b92a79533/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/69a24b9a739a2a9e7c971f15ee459ba6/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/69a24b9a739a2a9e7c971f15ee459ba6/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b01562d835fb2b590fb8d521c2d51e40/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b01562d835fb2b590fb8d521c2d51e40/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/fa110a2b5c0b29a5b0b880644e93e887/transformed/lifecycle-viewmodel-2.10.0/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/fa110a2b5c0b29a5b0b880644e93e887/transformed/lifecycle-viewmodel-2.10.0/AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/029067101595984e51832c6c86c2689c/transformed/lifecycle-viewmodel/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/029067101595984e51832c6c86c2689c/transformed/lifecycle-viewmodel/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/be9e2cfbc1a0cee916b02a6b5ff7ed9b/transformed/lifecycle-runtime-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/be9e2cfbc1a0cee916b02a6b5ff7ed9b/transformed/lifecycle-runtime-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/c7badbb493bdbed6945301fb3e7790b1/transformed/lifecycle-runtime/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/c7badbb493bdbed6945301fb3e7790b1/transformed/lifecycle-runtime/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/651d690a83d9de73d0c434e8a6d856a5/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/651d690a83d9de73d0c434e8a6d856a5/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/293942c617ea49197dfcad670b02bea6/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/293942c617ea49197dfcad670b02bea6/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/7dae229f11588dfa3a0c58e617344a1a/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/7dae229f11588dfa3a0c58e617344a1a/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/a9221a4aa3202eef80677c44b86167d9/transformed/core-ktx-1.17.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/a9221a4aa3202eef80677c44b86167d9/transformed/core-ktx-1.17.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/longkongjun/.gradle/caches/8.13/transforms/9b99a5cf4edf369a07558388e613c618/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/longkongjun/.gradle/caches/8.13/transforms/9b99a5cf4edf369a07558388e613c618/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5488440911492c74827d36661e302f5b/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5488440911492c74827d36661e302f5b/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/d913c95cb225fa8954e5ae4e1d0d0fa4/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/d913c95cb225fa8954e5ae4e1d0d0fa4/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/d379ad6f48e71bf0bf76e7a770f335c3/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/d379ad6f48e71bf0bf76e7a770f335c3/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/longkongjun/.gradle/caches/8.13/transforms/685be9a61d05509e41fbd4ef30163682/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/longkongjun/.gradle/caches/8.13/transforms/685be9a61d05509e41fbd4ef30163682/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/cce4d67181abe0f7d87aa7b9052f3ba2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/cce4d67181abe0f7d87aa7b9052f3ba2/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/longkongjun/.gradle/caches/8.13/transforms/184d747e1a651b687c84c9c3d1219ac9/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/longkongjun/.gradle/caches/8.13/transforms/184d747e1a651b687c84c9c3d1219ac9/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/21dd484d72ec9a612704b38b75e713bc/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/21dd484d72ec9a612704b38b75e713bc/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/abe0b46f95738d35790d6bf17b5cbcac/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/abe0b46f95738d35790d6bf17b5cbcac/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/66c0a641164bdc30a397f7329848a3fd/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /Users/longkongjun/.gradle/caches/8.13/transforms/66c0a641164bdc30a397f7329848a3fd/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/shelf/src/main/AndroidManifest.xml
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/dbaf6ec9a1c39ec94da91a02d06b1f3a/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/dbaf6ec9a1c39ec94da91a02d06b1f3a/transformed/ui-tooling/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/dbaf6ec9a1c39ec94da91a02d06b1f3a/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+activity#androidx.activity.ComponentActivity
+ADDED from [androidx.compose.ui:ui-test-manifest:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b0984311ff2596612a1e4dc41a1d3026/transformed/ui-test-manifest-1.10.0/AndroidManifest.xml:23:9-26:79
+	android:exported
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b0984311ff2596612a1e4dc41a1d3026/transformed/ui-test-manifest-1.10.0/AndroidManifest.xml:25:13-36
+	android:theme
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b0984311ff2596612a1e4dc41a1d3026/transformed/ui-test-manifest-1.10.0/AndroidManifest.xml:26:13-76
+	android:name
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/b0984311ff2596612a1e4dc41a1d3026/transformed/ui-test-manifest-1.10.0/AndroidManifest.xml:24:13-63
+uses-library#androidx.window.extensions
+ADDED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:23:9-25:40
+	android:required
+		ADDED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:25:13-37
+	android:name
+		ADDED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:24:13-54
+uses-library#androidx.window.sidecar
+ADDED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:26:9-28:40
+	android:required
+		ADDED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:28:13-37
+	android:name
+		ADDED from [androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/edb5d9ffa2ad96fb91c48d6b6db5c6d1/transformed/window-1.5.0/AndroidManifest.xml:27:13-51
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/507de39765626f25898f158b92a79533/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/507de39765626f25898f158b92a79533/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/d379ad6f48e71bf0bf76e7a770f335c3/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/longkongjun/.gradle/caches/8.13/transforms/d379ad6f48e71bf0bf76e7a770f335c3/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/27afaf27f45b3a842dfd8e46b853911e/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+permission#com.pusu.indexed.shelf.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+uses-permission#com.pusu.indexed.shelf.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.17.0] /Users/longkongjun/.gradle/caches/8.13/transforms/daf37d95a7b5a63d56e90736f809a39f/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/507de39765626f25898f158b92a79533/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/507de39765626f25898f158b92a79533/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/507de39765626f25898f158b92a79533/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/e955a893ee7ce3331af6515a0c2c04e2/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92

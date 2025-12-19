@@ -20,6 +20,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Coooomics"
-include(":app")
-include(":repos:jikan")
-include(":models:Feed")
+include(":apps:demo")
+include(":apps:shelf")
+include(":data:jikan")
+include(":domain:Feed")
+include(":feature:discover")
+include(":feature:anime-detail")
