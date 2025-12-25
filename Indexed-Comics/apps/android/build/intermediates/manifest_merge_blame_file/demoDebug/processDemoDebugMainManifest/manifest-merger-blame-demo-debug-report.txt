@@ -9,153 +9,144 @@
 9        android:targetSdkVersion="36" />
 10
 11    <permission
-11-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/4287fdac6de7a4db2b45976d997ca6b6/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+11-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/83b1a088785cfeed1ec04659b7370065/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
 12        android:name="com.pusu.indexed.comics.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-12-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/4287fdac6de7a4db2b45976d997ca6b6/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+12-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/83b1a088785cfeed1ec04659b7370065/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
 13        android:protectionLevel="signature" />
-13-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/4287fdac6de7a4db2b45976d997ca6b6/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+13-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/83b1a088785cfeed1ec04659b7370065/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
 14
 15    <uses-permission android:name="com.pusu.indexed.comics.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-15-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/4287fdac6de7a4db2b45976d997ca6b6/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
-15-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/4287fdac6de7a4db2b45976d997ca6b6/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
-16    <uses-permission android:name="android.permission.INTERNET" />
-16-->[com.squareup.okhttp3:okhttp-android:5.3.2] /Users/longkongjun/.gradle/caches/8.13/transforms/ca32440601f8864438004088d7ee63a0/transformed/okhttp-release/AndroidManifest.xml:8:5-67
-16-->[com.squareup.okhttp3:okhttp-android:5.3.2] /Users/longkongjun/.gradle/caches/8.13/transforms/ca32440601f8864438004088d7ee63a0/transformed/okhttp-release/AndroidManifest.xml:8:22-64
-17
-18    <application
-18-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/main/AndroidManifest.xml:3:5-47
-19        android:allowBackup="true"
-19-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:6:9-35
-20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-20-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/4287fdac6de7a4db2b45976d997ca6b6/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
-21        android:dataExtractionRules="@xml/data_extraction_rules"
-21-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:7:9-65
-22        android:debuggable="true"
-23        android:extractNativeLibs="false"
-24        android:fullBackupContent="@xml/backup_rules"
-24-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:8:9-54
-25        android:icon="@mipmap/ic_launcher"
-25-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:9:9-43
-26        android:label="@string/app_name"
-26-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:10:9-41
-27        android:roundIcon="@mipmap/ic_launcher_round"
-27-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:11:9-54
-28        android:supportsRtl="true"
-28-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/main/AndroidManifest.xml:3:18-44
-29        android:theme="@style/Theme.Coooomics" >
-29-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:13:9-47
-30        <activity
-30-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:14:9-24:20
-31            android:name="com.pusu.indexed.shelf.MainActivity"
-31-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:15:13-41
-32            android:exported="true"
-32-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:16:13-36
-33            android:label="@string/app_name"
-33-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:17:13-45
-34            android:theme="@style/Theme.Coooomics" >
-34-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:18:13-51
-35            <intent-filter>
-35-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:19:13-23:29
-36                <action android:name="android.intent.action.MAIN" />
-36-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:20:17-69
-36-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:20:25-66
-37
-38                <category android:name="android.intent.category.LAUNCHER" />
-38-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:22:17-77
-38-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:22:27-74
-39            </intent-filter>
-40        </activity>
-41        <activity
-41-->[androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/72444f42de3659fe0941619093ea2cb2/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
-42            android:name="androidx.compose.ui.tooling.PreviewActivity"
-42-->[androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/72444f42de3659fe0941619093ea2cb2/transformed/ui-tooling/AndroidManifest.xml:24:13-71
-43            android:exported="true" />
-43-->[androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/72444f42de3659fe0941619093ea2cb2/transformed/ui-tooling/AndroidManifest.xml:25:13-36
-44
-45        <uses-library
-45-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5758b0fa3a4a80305ec868ac8158d253/transformed/window-1.5.0/AndroidManifest.xml:23:9-25:40
-46            android:name="androidx.window.extensions"
-46-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5758b0fa3a4a80305ec868ac8158d253/transformed/window-1.5.0/AndroidManifest.xml:24:13-54
-47            android:required="false" />
-47-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5758b0fa3a4a80305ec868ac8158d253/transformed/window-1.5.0/AndroidManifest.xml:25:13-37
-48        <uses-library
-48-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5758b0fa3a4a80305ec868ac8158d253/transformed/window-1.5.0/AndroidManifest.xml:26:9-28:40
-49            android:name="androidx.window.sidecar"
-49-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5758b0fa3a4a80305ec868ac8158d253/transformed/window-1.5.0/AndroidManifest.xml:27:13-51
-50            android:required="false" />
-50-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5758b0fa3a4a80305ec868ac8158d253/transformed/window-1.5.0/AndroidManifest.xml:28:13-37
-51
-52        <provider
-52-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6d95bf4d8a330f90a7e170989aa45925/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
-53            android:name="androidx.startup.InitializationProvider"
-53-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6d95bf4d8a330f90a7e170989aa45925/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
-54            android:authorities="com.pusu.indexed.comics.androidx-startup"
-54-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6d95bf4d8a330f90a7e170989aa45925/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
-55            android:exported="false" >
-55-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6d95bf4d8a330f90a7e170989aa45925/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
-56            <meta-data
-56-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6d95bf4d8a330f90a7e170989aa45925/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
-57                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-57-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6d95bf4d8a330f90a7e170989aa45925/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
-58                android:value="androidx.startup" />
-58-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/6d95bf4d8a330f90a7e170989aa45925/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
-59            <meta-data
-59-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/longkongjun/.gradle/caches/8.13/transforms/6774f426b27ae001eb3e4243e6fc9eac/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:29:13-31:52
-60                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-60-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/longkongjun/.gradle/caches/8.13/transforms/6774f426b27ae001eb3e4243e6fc9eac/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:30:17-78
-61                android:value="androidx.startup" />
-61-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/longkongjun/.gradle/caches/8.13/transforms/6774f426b27ae001eb3e4243e6fc9eac/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:31:17-49
-62            <meta-data
-62-->[com.squareup.okhttp3:okhttp-android:5.3.2] /Users/longkongjun/.gradle/caches/8.13/transforms/ca32440601f8864438004088d7ee63a0/transformed/okhttp-release/AndroidManifest.xml:16:13-18:52
-63                android:name="okhttp3.internal.platform.PlatformInitializer"
-63-->[com.squareup.okhttp3:okhttp-android:5.3.2] /Users/longkongjun/.gradle/caches/8.13/transforms/ca32440601f8864438004088d7ee63a0/transformed/okhttp-release/AndroidManifest.xml:17:17-77
-64                android:value="androidx.startup" />
-64-->[com.squareup.okhttp3:okhttp-android:5.3.2] /Users/longkongjun/.gradle/caches/8.13/transforms/ca32440601f8864438004088d7ee63a0/transformed/okhttp-release/AndroidManifest.xml:18:17-49
-65            <meta-data
-65-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
-66                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-66-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
-67                android:value="androidx.startup" />
-67-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
-68        </provider>
-69
-70        <receiver
-70-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
-71            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-71-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
-72            android:directBootAware="false"
-72-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
-73            android:enabled="true"
-73-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
-74            android:exported="true"
-74-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
-75            android:permission="android.permission.DUMP" >
-75-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
-76            <intent-filter>
-76-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
-77                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-77-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
-77-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
-78            </intent-filter>
-79            <intent-filter>
-79-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
-80                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-80-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
-80-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
-81            </intent-filter>
-82            <intent-filter>
-82-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
-83                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-83-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
-83-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
-84            </intent-filter>
-85            <intent-filter>
-85-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
-86                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-86-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
-86-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/5e1e4f5cdd51cdbd15bd613d132d4936/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
-87            </intent-filter>
-88        </receiver>
-89    </application>
-90
-91</manifest>
+15-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/83b1a088785cfeed1ec04659b7370065/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/83b1a088785cfeed1ec04659b7370065/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+16
+17    <application
+17-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/main/AndroidManifest.xml:3:5-47
+18        android:allowBackup="true"
+18-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:6:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.16.0] /Users/longkongjun/.gradle/caches/8.13/transforms/83b1a088785cfeed1ec04659b7370065/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
+20        android:dataExtractionRules="@xml/data_extraction_rules"
+20-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:7:9-65
+21        android:debuggable="true"
+22        android:extractNativeLibs="false"
+23        android:fullBackupContent="@xml/backup_rules"
+23-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:8:9-54
+24        android:icon="@mipmap/ic_launcher"
+24-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:9:9-43
+25        android:label="@string/app_name"
+25-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:10:9-41
+26        android:roundIcon="@mipmap/ic_launcher_round"
+26-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:11:9-54
+27        android:supportsRtl="true"
+27-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/main/AndroidManifest.xml:3:18-44
+28        android:theme="@style/Theme.Coooomics" >
+28-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:13:9-47
+29        <activity
+29-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:14:9-24:20
+30            android:name="com.pusu.indexed.shelf.MainActivity"
+30-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:15:13-41
+31            android:exported="true"
+31-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:16:13-36
+32            android:label="@string/app_name"
+32-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:17:13-45
+33            android:theme="@style/Theme.Coooomics" >
+33-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:18:13-51
+34            <intent-filter>
+34-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:19:13-23:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:20:17-69
+35-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:20:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:22:17-77
+37-->/Users/longkongjun/CursorSpace/Indexed/Indexed-Comics/apps/android/src/demo/AndroidManifest.xml:22:27-74
+38            </intent-filter>
+39        </activity>
+40        <activity
+40-->[androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/544c98ffff91628d920a9e38719b849b/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+41            android:name="androidx.compose.ui.tooling.PreviewActivity"
+41-->[androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/544c98ffff91628d920a9e38719b849b/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+42            android:exported="true" />
+42-->[androidx.compose.ui:ui-tooling-android:1.10.0] /Users/longkongjun/.gradle/caches/8.13/transforms/544c98ffff91628d920a9e38719b849b/transformed/ui-tooling/AndroidManifest.xml:25:13-36
+43
+44        <uses-library
+44-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/aa21c6e091aa0ecb0e91edaccc88b422/transformed/window-1.5.0/AndroidManifest.xml:23:9-25:40
+45            android:name="androidx.window.extensions"
+45-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/aa21c6e091aa0ecb0e91edaccc88b422/transformed/window-1.5.0/AndroidManifest.xml:24:13-54
+46            android:required="false" />
+46-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/aa21c6e091aa0ecb0e91edaccc88b422/transformed/window-1.5.0/AndroidManifest.xml:25:13-37
+47        <uses-library
+47-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/aa21c6e091aa0ecb0e91edaccc88b422/transformed/window-1.5.0/AndroidManifest.xml:26:9-28:40
+48            android:name="androidx.window.sidecar"
+48-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/aa21c6e091aa0ecb0e91edaccc88b422/transformed/window-1.5.0/AndroidManifest.xml:27:13-51
+49            android:required="false" />
+49-->[androidx.window:window:1.5.0] /Users/longkongjun/.gradle/caches/8.13/transforms/aa21c6e091aa0ecb0e91edaccc88b422/transformed/window-1.5.0/AndroidManifest.xml:28:13-37
+50
+51        <provider
+51-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/3f9d7c30daf3e6316575068ba7e61760/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+52            android:name="androidx.startup.InitializationProvider"
+52-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/3f9d7c30daf3e6316575068ba7e61760/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+53            android:authorities="com.pusu.indexed.comics.androidx-startup"
+53-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/3f9d7c30daf3e6316575068ba7e61760/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+54            android:exported="false" >
+54-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/3f9d7c30daf3e6316575068ba7e61760/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+55            <meta-data
+55-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/3f9d7c30daf3e6316575068ba7e61760/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+56                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+56-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/3f9d7c30daf3e6316575068ba7e61760/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+57                android:value="androidx.startup" />
+57-->[androidx.emoji2:emoji2:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/3f9d7c30daf3e6316575068ba7e61760/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+58            <meta-data
+58-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/longkongjun/.gradle/caches/8.13/transforms/aed51ceef1fa895efc27ce4b038d69a4/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:29:13-31:52
+59                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+59-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/longkongjun/.gradle/caches/8.13/transforms/aed51ceef1fa895efc27ce4b038d69a4/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:30:17-78
+60                android:value="androidx.startup" />
+60-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/longkongjun/.gradle/caches/8.13/transforms/aed51ceef1fa895efc27ce4b038d69a4/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:31:17-49
+61            <meta-data
+61-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+62                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+62-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+63                android:value="androidx.startup" />
+63-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+64        </provider>
+65
+66        <receiver
+66-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+67            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+67-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+68            android:directBootAware="false"
+68-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+69            android:enabled="true"
+69-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+70            android:exported="true"
+70-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+71            android:permission="android.permission.DUMP" >
+71-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+72            <intent-filter>
+72-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+73                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+73-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+73-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+74            </intent-filter>
+75            <intent-filter>
+75-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+76                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+76-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+76-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+77            </intent-filter>
+78            <intent-filter>
+78-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+79                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+79-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+79-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+80            </intent-filter>
+81            <intent-filter>
+81-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+82                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+82-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+82-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/longkongjun/.gradle/caches/8.13/transforms/eaea15afa7157059d2c5d2f588bf9363/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+83            </intent-filter>
+84        </receiver>
+85    </application>
+86
+87</manifest>

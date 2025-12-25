@@ -14,4 +14,13 @@
 .externalNativeBuild
 .cxx
 local.properties
-.kotlin/
+.kotlintest
+.kotlincache
+.kover
+.ksp/
+.kotlincache/
+.kover/
+.ksp/
+.kapt/
+/.kotlin
+/.kotlin/

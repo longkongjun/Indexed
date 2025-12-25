@@ -1,0 +1,8 @@
+{
+  "buildPath": ":",
+  "projectPath": ":shared:core:network",
+  "moduleId": {
+    "groupId": "Coooomics.shared.core",
+    "moduleId": "network"
+  }
+}

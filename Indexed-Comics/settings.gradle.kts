@@ -28,6 +28,7 @@ rootProject.name = "Coooomics"
 include(":shared:core:model")
 include(":shared:core:utils")
 include(":shared:core:ui")
+include(":shared:core:network")
 include(":shared:domain:feed")
 include(":shared:data:jikan")
 include(":shared:feature:discover")

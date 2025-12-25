@@ -16,19 +16,11 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(project(":shared:core:model"))
+                implementation(project(":shared:core:network"))
                 implementation(libs.kotlinx.serialization.json)
             }
         }
         val commonTest by getting { dependencies { implementation(kotlin("test")) } }
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.retrofit)
-                implementation(libs.okhttp)
-                implementation(libs.logging.interceptor)
-                implementation(libs.retrofit2.kotlinx.serialization.converter)
-                implementation(libs.kotlinx.serialization.json)
-            }
-        }
     }
     jvmToolchain(11)
 }

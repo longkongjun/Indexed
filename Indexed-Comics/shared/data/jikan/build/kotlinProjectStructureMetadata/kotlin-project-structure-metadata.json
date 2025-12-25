@@ -87,6 +87,7 @@
         ],
         "moduleDependency": [
           "Coooomics.shared.core:model",
+          "Coooomics.shared.core:network",
           "org.jetbrains.kotlinx:kotlinx-serialization-json"
         ],
         "sourceSetCInteropMetadataDirectory": "appleMain-cinterop",
@@ -99,6 +100,7 @@
         "moduleDependency": [
           "org.jetbrains.kotlin:kotlin-stdlib",
           "Coooomics.shared.core:model",
+          "Coooomics.shared.core:network",
           "org.jetbrains.kotlinx:kotlinx-serialization-json"
         ],
         "binaryLayout": "klib"
@@ -110,6 +112,7 @@
         ],
         "moduleDependency": [
           "Coooomics.shared.core:model",
+          "Coooomics.shared.core:network",
           "org.jetbrains.kotlinx:kotlinx-serialization-json"
         ],
         "sourceSetCInteropMetadataDirectory": "iosMain-cinterop",
@@ -123,6 +126,7 @@
         ],
         "moduleDependency": [
           "Coooomics.shared.core:model",
+          "Coooomics.shared.core:network",
           "org.jetbrains.kotlinx:kotlinx-serialization-json"
         ],
         "sourceSetCInteropMetadataDirectory": "nativeMain-cinterop",
