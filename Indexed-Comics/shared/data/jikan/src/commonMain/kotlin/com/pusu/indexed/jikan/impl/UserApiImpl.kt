@@ -15,23 +15,23 @@ internal class UserApiImpl(
 ) : UserApi {
     
     override suspend fun getUserByUsername(username: String): Result<JikanResponse<User>> =
-        client.get(path = listOf("users", username))
+        client.get(path = "users/$username")
     
     override suspend fun getUserFullProfile(username: String): Result<JikanResponse<User>> =
-        client.get(path = listOf("users", username, "full"))
+        client.get(path = "users/$username/full")
     
     override suspend fun getUserStatistics(username: String): Result<JikanResponse<UserStatistics>> =
-        client.get(path = listOf("users", username, "statistics"))
+        client.get(path = "users/$username/statistics")
     
     override suspend fun getUserFavorites(username: String): Result<JikanResponse<UserFavorites>> =
-        client.get(path = listOf("users", username, "favorites"))
+        client.get(path = "users/$username/favorites")
     
     override suspend fun getUserFriends(
         username: String,
         page: Int?
     ): Result<JikanPageResponse<UserFriend>> =
         client.get(
-            path = listOf("users", username, "friends"),
+            path = "users/$username/friends",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -42,7 +42,7 @@ internal class UserApiImpl(
         type: String?
     ): Result<JikanResponse<List<UserHistory>>> =
         client.get(
-            path = listOf("users", username, "history"),
+            path = "users/$username/history",
             query = buildMap {
                 type?.let { put("type", it) }
             }
@@ -58,7 +58,7 @@ internal class UserApiImpl(
         minAge: Int?
     ): Result<JikanPageResponse<User>> =
         client.get(
-            path = listOf("users"),
+            path = "users",
             query = buildMap {
                 query?.let { put("q", it) }
                 page?.let { put("page", it) }
@@ -70,4 +70,3 @@ internal class UserApiImpl(
             }
         )
 }
-

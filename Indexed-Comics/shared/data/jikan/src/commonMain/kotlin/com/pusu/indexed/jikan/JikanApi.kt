@@ -128,27 +128,29 @@ interface JikanApi {
 /**
  * JikanApi 的默认实现。
  * 
+ * 使用 lazy 初始化所有子 API 实例，只在首次访问时创建，提高性能并节省资源。
+ * 
  * @property client HTTP 客户端，负责底层网络通信
  */
 internal class JikanApiImpl(
     private val client: JikanClient
 ) : JikanApi {
-    override val anime: AnimeApi = AnimeApiImpl(client)
-    override val manga: MangaApi = MangaApiImpl(client)
-    override val characters: CharacterApi = CharacterApiImpl(client)
-    override val people: PeopleApi = PeopleApiImpl(client)
-    override val seasons: SeasonApi = SeasonApiImpl(client)
-    override val producers: ProducerApi = ProducerApiImpl(client)
-    override val magazines: MagazineApi = MagazineApiImpl(client)
-    override val clubs: ClubApi = ClubApiImpl(client)
-    override val users: UserApi = UserApiImpl(client)
-    override val watch: WatchApi = WatchApiImpl(client)
-    override val genres: GenresApi = GenresApiImpl(client)
-    override val random: RandomApi = RandomApiImpl(client)
-    override val recommendations: RecommendationsApi = RecommendationsApiImpl(client)
-    override val reviews: ReviewsApi = ReviewsApiImpl(client)
-    override val schedules: SchedulesApi = SchedulesApiImpl(client)
-    override val top: TopApi = TopApiImpl(client)
+    override val anime: AnimeApi by lazy { AnimeApiImpl(client) }
+    override val manga: MangaApi by lazy { MangaApiImpl(client) }
+    override val characters: CharacterApi by lazy { CharacterApiImpl(client) }
+    override val people: PeopleApi by lazy { PeopleApiImpl(client) }
+    override val seasons: SeasonApi by lazy { SeasonApiImpl(client) }
+    override val producers: ProducerApi by lazy { ProducerApiImpl(client) }
+    override val magazines: MagazineApi by lazy { MagazineApiImpl(client) }
+    override val clubs: ClubApi by lazy { ClubApiImpl(client) }
+    override val users: UserApi by lazy { UserApiImpl(client) }
+    override val watch: WatchApi by lazy { WatchApiImpl(client) }
+    override val genres: GenresApi by lazy { GenresApiImpl(client) }
+    override val random: RandomApi by lazy { RandomApiImpl(client) }
+    override val recommendations: RecommendationsApi by lazy { RecommendationsApiImpl(client) }
+    override val reviews: ReviewsApi by lazy { ReviewsApiImpl(client) }
+    override val schedules: SchedulesApi by lazy { SchedulesApiImpl(client) }
+    override val top: TopApi by lazy { TopApiImpl(client) }
 }
 
 /**

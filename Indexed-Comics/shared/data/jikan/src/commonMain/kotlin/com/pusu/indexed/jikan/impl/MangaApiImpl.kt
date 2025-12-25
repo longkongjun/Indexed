@@ -21,20 +21,20 @@ internal class MangaApiImpl(
 ) : MangaApi {
     
     override suspend fun getMangaById(id: Int): Result<JikanResponse<Manga>> =
-        client.get(path = listOf("manga", id.toString()))
+        client.get(path = "manga/$id")
     
     override suspend fun getMangaFullById(id: Int): Result<JikanResponse<Manga>> =
-        client.get(path = listOf("manga", id.toString(), "full"))
+        client.get(path = "manga/$id/full")
     
     override suspend fun getMangaCharacters(id: Int): Result<JikanResponse<List<MangaCharacter>>> =
-        client.get(path = listOf("manga", id.toString(), "characters"))
+        client.get(path = "manga/$id/characters")
     
     override suspend fun getMangaNews(
         id: Int,
         page: Int?
     ): Result<JikanPageResponse<MangaNews>> =
         client.get(
-            path = listOf("manga", id.toString(), "news"),
+            path = "manga/$id/news",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -45,30 +45,30 @@ internal class MangaApiImpl(
         filter: String?
     ): Result<JikanResponse<List<com.pusu.indexed.jikan.models.anime.ForumTopic>>> =
         client.get(
-            path = listOf("manga", id.toString(), "forum"),
+            path = "manga/$id/forum",
             query = buildMap {
                 filter?.let { put("filter", it) }
             }
         )
     
     override suspend fun getMangaPictures(id: Int): Result<JikanResponse<List<MangaPicture>>> =
-        client.get(path = listOf("manga", id.toString(), "pictures"))
+        client.get(path = "manga/$id/pictures")
     
     override suspend fun getMangaStatistics(id: Int): Result<JikanResponse<MangaStatistics>> =
-        client.get(path = listOf("manga", id.toString(), "statistics"))
+        client.get(path = "manga/$id/statistics")
     
     override suspend fun getMangaMoreInfo(id: Int): Result<JikanResponse<String>> =
-        client.get(path = listOf("manga", id.toString(), "moreinfo"))
+        client.get(path = "manga/$id/moreinfo")
     
     override suspend fun getMangaRecommendations(id: Int): Result<JikanResponse<List<Recommendation>>> =
-        client.get(path = listOf("manga", id.toString(), "recommendations"))
+        client.get(path = "manga/$id/recommendations")
     
     override suspend fun getMangaUserUpdates(
         id: Int,
         page: Int?
     ): Result<JikanPageResponse<UserUpdate>> =
         client.get(
-            path = listOf("manga", id.toString(), "userupdates"),
+            path = "manga/$id/userupdates",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -79,7 +79,7 @@ internal class MangaApiImpl(
         page: Int?
     ): Result<JikanPageResponse<MangaReview>> =
         client.get(
-            path = listOf("manga", id.toString(), "reviews"),
+            path = "manga/$id/reviews",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -98,7 +98,7 @@ internal class MangaApiImpl(
         sort: String?
     ): Result<JikanPageResponse<Manga>> =
         client.get(
-            path = listOf("manga"),
+            path = "manga",
             query = buildMap {
                 query?.let { put("q", it) }
                 page?.let { put("page", it) }
@@ -119,7 +119,7 @@ internal class MangaApiImpl(
         filter: MangaFilter?
     ): Result<JikanPageResponse<Manga>> =
         client.get(
-            path = listOf("top", "manga"),
+            path = "top/manga",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
@@ -127,4 +127,3 @@ internal class MangaApiImpl(
             }
         )
 }
-

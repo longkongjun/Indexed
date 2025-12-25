@@ -15,24 +15,24 @@ internal class ClubApiImpl(
 ) : ClubApi {
     
     override suspend fun getClubById(id: Int): Result<JikanResponse<Club>> =
-        client.get(path = listOf("clubs", id.toString()))
+        client.get(path = "clubs/$id")
     
     override suspend fun getClubMembers(
         id: Int,
         page: Int?
     ): Result<JikanPageResponse<ClubMember>> =
         client.get(
-            path = listOf("clubs", id.toString(), "members"),
+            path = "clubs/$id/members",
             query = buildMap {
                 page?.let { put("page", it) }
             }
         )
     
     override suspend fun getClubStaff(id: Int): Result<JikanResponse<List<ClubStaff>>> =
-        client.get(path = listOf("clubs", id.toString(), "staff"))
+        client.get(path = "clubs/$id/staff")
     
     override suspend fun getClubRelations(id: Int): Result<JikanResponse<ClubRelations>> =
-        client.get(path = listOf("clubs", id.toString(), "relations"))
+        client.get(path = "clubs/$id/relations")
     
     override suspend fun searchClubs(
         query: String?,
@@ -44,7 +44,7 @@ internal class ClubApiImpl(
         sort: String?
     ): Result<JikanPageResponse<Club>> =
         client.get(
-            path = listOf("clubs"),
+            path = "clubs",
             query = buildMap {
                 query?.let { put("q", it) }
                 page?.let { put("page", it) }
@@ -56,4 +56,3 @@ internal class ClubApiImpl(
             }
         )
 }
-

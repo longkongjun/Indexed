@@ -22,7 +22,7 @@ internal class SeasonApiImpl(
         limit: Int?
     ): Result<JikanPageResponse<Anime>> =
         client.get(
-            path = listOf("seasons", year.toString(), season),
+            path = "seasons/$year/$season",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
@@ -34,7 +34,7 @@ internal class SeasonApiImpl(
         limit: Int?
     ): Result<JikanPageResponse<Anime>> =
         client.get(
-            path = listOf("seasons", "now"),
+            path = "seasons/now",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
@@ -46,7 +46,7 @@ internal class SeasonApiImpl(
         limit: Int?
     ): Result<JikanPageResponse<Anime>> =
         client.get(
-            path = listOf("seasons", "upcoming"),
+            path = "seasons/upcoming",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
@@ -54,6 +54,5 @@ internal class SeasonApiImpl(
         )
     
     override suspend fun getAllSeasons(): Result<JikanResponse<List<Season>>> =
-        client.get(path = listOf("seasons"))
+        client.get(path = "seasons")
 }
-

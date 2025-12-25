@@ -19,18 +19,17 @@ internal class RandomApiImpl(
 ) : RandomApi {
     
     override suspend fun getRandomAnime(): Result<JikanResponse<Anime>> =
-        client.get(path = listOf("random", "anime"))
+        client.get(path = "random/anime")
     
     override suspend fun getRandomManga(): Result<JikanResponse<Manga>> =
-        client.get(path = listOf("random", "manga"))
+        client.get(path = "random/manga")
     
     override suspend fun getRandomCharacter(): Result<JikanResponse<Character>> =
-        client.get(path = listOf("random", "characters"))
+        client.get(path = "random/characters")
     
     override suspend fun getRandomPerson(): Result<JikanResponse<Person>> =
-        client.get(path = listOf("random", "people"))
+        client.get(path = "random/people")
     
     override suspend fun getRandomUser(): Result<JikanResponse<User>> =
-        client.get(path = listOf("random", "users"))
+        client.get(path = "random/users")
 }
-

@@ -20,7 +20,7 @@ internal class SchedulesApiImpl(
         limit: Int?
     ): Result<JikanPageResponse<Anime>> =
         client.get(
-            path = listOf("schedules"),
+            path = "schedules",
             query = buildMap {
                 filter?.let { put("filter", it) }
                 page?.let { put("page", it) }
@@ -28,4 +28,3 @@ internal class SchedulesApiImpl(
             }
         )
 }
-

@@ -11,25 +11,11 @@ class JikanClient(
     val httpClient: HttpClient = NetworkClient.httpClient,
 ) {
     suspend inline fun <reified T> get(
-        path: List<String>,
+        path: String,
         query: Map<String, Any?> = emptyMap(),
     ): Result<T> {
         val normalizedBase = if (baseUrl.endsWith("/")) baseUrl.dropLast(1) else baseUrl
-        val url = normalizedBase + "/" + path.joinToString("/")
+        val url = "$normalizedBase/$path"
         return httpClient.getJson(url, query)
     }
-
-    suspend fun searchAnime(
-        query: String? = null,
-        page: Int? = null,
-        limit: Int? = null,
-    ): Result<JikanPageResponse<Anime>> =
-        get(
-            path = listOf("anime"),
-            query = mapOf(
-                "q" to query,
-                "page" to page,
-                "limit" to limit,
-            ),
-        )
 }

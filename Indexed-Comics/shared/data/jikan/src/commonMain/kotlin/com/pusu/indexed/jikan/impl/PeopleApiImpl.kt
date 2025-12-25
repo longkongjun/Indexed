@@ -15,13 +15,13 @@ internal class PeopleApiImpl(
 ) : PeopleApi {
     
     override suspend fun getPersonById(id: Int): Result<JikanResponse<Person>> =
-        client.get(path = listOf("people", id.toString()))
+        client.get(path = "people/$id")
     
     override suspend fun getPersonFullById(id: Int): Result<JikanResponse<Person>> =
-        client.get(path = listOf("people", id.toString(), "full"))
+        client.get(path = "people/$id/full")
     
     override suspend fun getPersonPictures(id: Int): Result<JikanResponse<List<PersonPicture>>> =
-        client.get(path = listOf("people", id.toString(), "pictures"))
+        client.get(path = "people/$id/pictures")
     
     override suspend fun searchPeople(
         query: String?,
@@ -31,7 +31,7 @@ internal class PeopleApiImpl(
         sort: String?
     ): Result<JikanPageResponse<Person>> =
         client.get(
-            path = listOf("people"),
+            path = "people",
             query = buildMap {
                 query?.let { put("q", it) }
                 page?.let { put("page", it) }
@@ -46,11 +46,10 @@ internal class PeopleApiImpl(
         limit: Int?
     ): Result<JikanPageResponse<Person>> =
         client.get(
-            path = listOf("top", "people"),
+            path = "top/people",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
             }
         )
 }
-

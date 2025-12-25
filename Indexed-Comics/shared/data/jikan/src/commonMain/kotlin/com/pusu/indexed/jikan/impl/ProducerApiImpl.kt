@@ -15,10 +15,10 @@ internal class ProducerApiImpl(
 ) : ProducerApi {
     
     override suspend fun getProducerById(id: Int): Result<JikanResponse<Producer>> =
-        client.get(path = listOf("producers", id.toString()))
+        client.get(path = "producers/$id")
     
     override suspend fun getProducerFullById(id: Int): Result<JikanResponse<Producer>> =
-        client.get(path = listOf("producers", id.toString(), "full"))
+        client.get(path = "producers/$id/full")
     
     override suspend fun searchProducers(
         query: String?,
@@ -28,7 +28,7 @@ internal class ProducerApiImpl(
         sort: String?
     ): Result<JikanPageResponse<Producer>> =
         client.get(
-            path = listOf("producers"),
+            path = "producers",
             query = buildMap {
                 query?.let { put("q", it) }
                 page?.let { put("page", it) }
@@ -38,4 +38,3 @@ internal class ProducerApiImpl(
             }
         )
 }
-

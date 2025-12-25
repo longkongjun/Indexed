@@ -22,7 +22,7 @@ internal class MagazineApiImpl(
         sort: String?
     ): Result<JikanPageResponse<Magazine>> =
         client.get(
-            path = listOf("magazines"),
+            path = "magazines",
             query = buildMap {
                 query?.let { put("q", it) }
                 page?.let { put("page", it) }
@@ -32,4 +32,3 @@ internal class MagazineApiImpl(
             }
         )
 }
-

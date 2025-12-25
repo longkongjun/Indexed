@@ -21,23 +21,23 @@ internal class AnimeApiImpl(
 ) : AnimeApi {
     
     override suspend fun getAnimeById(id: Int): Result<JikanResponse<Anime>> =
-        client.get(path = listOf("anime", id.toString()))
+        client.get(path = "anime/$id")
     
     override suspend fun getAnimeFullById(id: Int): Result<JikanResponse<Anime>> =
-        client.get(path = listOf("anime", id.toString(), "full"))
+        client.get(path = "anime/$id/full")
     
     override suspend fun getAnimeCharacters(id: Int): Result<JikanResponse<List<AnimeCharacter>>> =
-        client.get(path = listOf("anime", id.toString(), "characters"))
+        client.get(path = "anime/$id/characters")
     
     override suspend fun getAnimeStaff(id: Int): Result<JikanResponse<List<AnimeStaff>>> =
-        client.get(path = listOf("anime", id.toString(), "staff"))
+        client.get(path = "anime/$id/staff")
     
     override suspend fun getAnimeEpisodes(
         id: Int,
         page: Int?
     ): Result<JikanPageResponse<AnimeEpisode>> =
         client.get(
-            path = listOf("anime", id.toString(), "episodes"),
+            path = "anime/$id/episodes",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -47,14 +47,14 @@ internal class AnimeApiImpl(
         id: Int,
         episode: Int
     ): Result<JikanResponse<AnimeEpisode>> =
-        client.get(path = listOf("anime", id.toString(), "episodes", episode.toString()))
+        client.get(path = "anime/$id/episodes/$episode")
     
     override suspend fun getAnimeNews(
         id: Int,
         page: Int?
     ): Result<JikanPageResponse<AnimeNews>> =
         client.get(
-            path = listOf("anime", id.toString(), "news"),
+            path = "anime/$id/news",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -65,33 +65,33 @@ internal class AnimeApiImpl(
         filter: String?
     ): Result<JikanResponse<List<ForumTopic>>> =
         client.get(
-            path = listOf("anime", id.toString(), "forum"),
+            path = "anime/$id/forum",
             query = buildMap {
                 filter?.let { put("filter", it) }
             }
         )
     
     override suspend fun getAnimeVideos(id: Int): Result<JikanResponse<AnimeVideos>> =
-        client.get(path = listOf("anime", id.toString(), "videos"))
+        client.get(path = "anime/$id/videos")
     
     override suspend fun getAnimePictures(id: Int): Result<JikanResponse<List<Picture>>> =
-        client.get(path = listOf("anime", id.toString(), "pictures"))
+        client.get(path = "anime/$id/pictures")
     
     override suspend fun getAnimeStatistics(id: Int): Result<JikanResponse<AnimeStatistics>> =
-        client.get(path = listOf("anime", id.toString(), "statistics"))
+        client.get(path = "anime/$id/statistics")
     
     override suspend fun getAnimeMoreInfo(id: Int): Result<JikanResponse<String>> =
-        client.get(path = listOf("anime", id.toString(), "moreinfo"))
+        client.get(path = "anime/$id/moreinfo")
     
     override suspend fun getAnimeRecommendations(id: Int): Result<JikanResponse<List<Recommendation>>> =
-        client.get(path = listOf("anime", id.toString(), "recommendations"))
+        client.get(path = "anime/$id/recommendations")
     
     override suspend fun getAnimeUserUpdates(
         id: Int,
         page: Int?
     ): Result<JikanPageResponse<UserUpdate>> =
         client.get(
-            path = listOf("anime", id.toString(), "userupdates"),
+            path = "anime/$id/userupdates",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -102,7 +102,7 @@ internal class AnimeApiImpl(
         page: Int?
     ): Result<JikanPageResponse<AnimeReview>> =
         client.get(
-            path = listOf("anime", id.toString(), "reviews"),
+            path = "anime/$id/reviews",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -122,7 +122,7 @@ internal class AnimeApiImpl(
         sort: String?
     ): Result<JikanPageResponse<Anime>> =
         client.get(
-            path = listOf("anime"),
+            path = "anime",
             query = buildMap {
                 query?.let { put("q", it) }
                 page?.let { put("page", it) }
@@ -144,7 +144,7 @@ internal class AnimeApiImpl(
         filter: AnimeFilter?
     ): Result<JikanPageResponse<Anime>> =
         client.get(
-            path = listOf("top", "anime"),
+            path = "top/anime",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }

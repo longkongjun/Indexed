@@ -18,7 +18,7 @@ internal class WatchApiImpl(
         page: Int?
     ): Result<JikanPageResponse<RecentPromoVideo>> =
         client.get(
-            path = listOf("watch", "promos"),
+            path = "watch/promos",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -28,7 +28,7 @@ internal class WatchApiImpl(
         page: Int?
     ): Result<JikanPageResponse<RecentEpisodeVideo>> =
         client.get(
-            path = listOf("watch", "episodes"),
+            path = "watch/episodes",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -39,7 +39,7 @@ internal class WatchApiImpl(
         limit: Int?
     ): Result<JikanPageResponse<RecentPromoVideo>> =
         client.get(
-            path = listOf("watch", "promos", "popular"),
+            path = "watch/promos/popular",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
@@ -51,11 +51,10 @@ internal class WatchApiImpl(
         limit: Int?
     ): Result<JikanPageResponse<RecentEpisodeVideo>> =
         client.get(
-            path = listOf("watch", "episodes", "popular"),
+            path = "watch/episodes/popular",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
             }
         )
 }
-

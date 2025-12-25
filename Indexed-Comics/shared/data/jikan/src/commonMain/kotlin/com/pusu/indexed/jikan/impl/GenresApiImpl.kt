@@ -18,7 +18,7 @@ internal class GenresApiImpl(
         filter: String?
     ): Result<JikanResponse<List<Genre>>> =
         client.get(
-            path = listOf("genres", "anime"),
+            path = "genres/anime",
             query = buildMap {
                 filter?.let { put("filter", it) }
             }
@@ -28,10 +28,9 @@ internal class GenresApiImpl(
         filter: String?
     ): Result<JikanResponse<List<Genre>>> =
         client.get(
-            path = listOf("genres", "manga"),
+            path = "genres/manga",
             query = buildMap {
                 filter?.let { put("filter", it) }
             }
         )
 }
-

@@ -18,7 +18,7 @@ internal class RecommendationsApiImpl(
         page: Int?
     ): Result<JikanPageResponse<RecentRecommendation>> =
         client.get(
-            path = listOf("recommendations", "anime"),
+            path = "recommendations/anime",
             query = buildMap {
                 page?.let { put("page", it) }
             }
@@ -28,10 +28,9 @@ internal class RecommendationsApiImpl(
         page: Int?
     ): Result<JikanPageResponse<RecentRecommendation>> =
         client.get(
-            path = listOf("recommendations", "manga"),
+            path = "recommendations/manga",
             query = buildMap {
                 page?.let { put("page", it) }
             }
         )
 }
-

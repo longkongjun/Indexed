@@ -20,7 +20,7 @@ internal class ReviewsApiImpl(
         spoiler: Boolean?
     ): Result<JikanPageResponse<RecentReview>> =
         client.get(
-            path = listOf("reviews", "anime"),
+            path = "reviews/anime",
             query = buildMap {
                 page?.let { put("page", it) }
                 preliminary?.let { put("preliminary", it) }
@@ -34,7 +34,7 @@ internal class ReviewsApiImpl(
         spoiler: Boolean?
     ): Result<JikanPageResponse<RecentReview>> =
         client.get(
-            path = listOf("reviews", "manga"),
+            path = "reviews/manga",
             query = buildMap {
                 page?.let { put("page", it) }
                 preliminary?.let { put("preliminary", it) }
@@ -42,4 +42,3 @@ internal class ReviewsApiImpl(
             }
         )
 }
-

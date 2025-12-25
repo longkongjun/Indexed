@@ -15,13 +15,13 @@ internal class CharacterApiImpl(
 ) : CharacterApi {
     
     override suspend fun getCharacterById(id: Int): Result<JikanResponse<Character>> =
-        client.get(path = listOf("characters", id.toString()))
+        client.get(path = "characters/$id")
     
     override suspend fun getCharacterFullById(id: Int): Result<JikanResponse<Character>> =
-        client.get(path = listOf("characters", id.toString(), "full"))
+        client.get(path = "characters/$id/full")
     
     override suspend fun getCharacterPictures(id: Int): Result<JikanResponse<List<CharacterPicture>>> =
-        client.get(path = listOf("characters", id.toString(), "pictures"))
+        client.get(path = "characters/$id/pictures")
     
     override suspend fun searchCharacters(
         query: String?,
@@ -31,7 +31,7 @@ internal class CharacterApiImpl(
         sort: String?
     ): Result<JikanPageResponse<Character>> =
         client.get(
-            path = listOf("characters"),
+            path = "characters",
             query = buildMap {
                 query?.let { put("q", it) }
                 page?.let { put("page", it) }
@@ -46,11 +46,10 @@ internal class CharacterApiImpl(
         limit: Int?
     ): Result<JikanPageResponse<Character>> =
         client.get(
-            path = listOf("top", "characters"),
+            path = "top/characters",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
             }
         )
 }
-

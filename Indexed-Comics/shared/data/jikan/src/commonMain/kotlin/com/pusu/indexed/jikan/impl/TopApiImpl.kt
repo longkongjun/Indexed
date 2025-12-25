@@ -24,7 +24,7 @@ internal class TopApiImpl(
         type: String?
     ): Result<JikanPageResponse<Anime>> =
         client.get(
-            path = listOf("top", "anime"),
+            path = "top/anime",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
@@ -40,7 +40,7 @@ internal class TopApiImpl(
         type: String?
     ): Result<JikanPageResponse<Manga>> =
         client.get(
-            path = listOf("top", "manga"),
+            path = "top/manga",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
@@ -54,7 +54,7 @@ internal class TopApiImpl(
         limit: Int?
     ): Result<JikanPageResponse<Character>> =
         client.get(
-            path = listOf("top", "characters"),
+            path = "top/characters",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
@@ -66,7 +66,7 @@ internal class TopApiImpl(
         limit: Int?
     ): Result<JikanPageResponse<Person>> =
         client.get(
-            path = listOf("top", "people"),
+            path = "top/people",
             query = buildMap {
                 page?.let { put("page", it) }
                 limit?.let { put("limit", it) }
@@ -77,10 +77,9 @@ internal class TopApiImpl(
         page: Int?
     ): Result<JikanPageResponse<com.pusu.indexed.jikan.models.review.RecentReview>> =
         client.get(
-            path = listOf("top", "reviews"),
+            path = "top/reviews",
             query = buildMap {
                 page?.let { put("page", it) }
             }
         )
 }
-
