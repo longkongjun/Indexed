@@ -1,0 +1,35 @@
+*.iml
+.DS_Store
+Thumbs.db
+
+# IDE / tool configs
+/.idea
+.vscode/
+
+# Gradle / build outputs
+/build
+**/build/
+.gradle
+**/.gradle/
+
+# Android/Native toolchain
+/.cxx
+.externalNativeBuild
+local.properties
+/local.properties
+
+# Kotlin/Compose caches
+/.kotlin
+/.kotlin/
+**/.kotlin/
+.kotlincache/
+.kotlintest
+.kover/
+.ksp/
+.kapt/
+
+# KMM Native dependencies
+.konan/
+
+# Kotlin/JS store (Yarn cache and lock files)
+kotlin-js-store/
