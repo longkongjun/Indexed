@@ -28,7 +28,7 @@ kotlin {
                 implementation(compose.desktop.currentOs)
                 
                 // Ktor (用于 DI 容器中创建 HttpClient)
-                implementation("io.ktor:ktor-client-cio:3.3.3")
+                implementation(libs.ktor.client.cio)
                 implementation(libs.ktor.client.content.negotiation)
                 implementation(libs.ktor.serialization.kotlinx.json)
                 implementation(libs.ktor.client.logging)
@@ -40,7 +40,7 @@ kotlin {
             }
         }
     }
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 compose.desktop.application {
