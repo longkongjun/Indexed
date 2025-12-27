@@ -14,18 +14,21 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // utils 只包含纯工具函数，不依赖任何业务模块
+                // 只依赖核心模块，不依赖任何数据层
+                implementation(project(":shared:core:model"))
             }
         }
         val commonTest by getting {
-            dependencies { implementation(kotlin("test")) }
+            dependencies {
+                implementation(kotlin("test"))
+            }
         }
     }
     jvmToolchain(17)
 }
 
 android {
-    namespace = "com.pusu.indexed.shared.utils"
+    namespace = "com.pusu.indexed.domain.discover"
     compileSdk = 36
     defaultConfig { minSdk = 24 }
     compileOptions {
@@ -33,3 +36,4 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 }
+

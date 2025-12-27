@@ -16,13 +16,22 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                // Compose
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
-            implementation(project(":shared:core:model"))
-            implementation(project(":shared:core:ui"))
-            implementation(project(":shared:domain:feed"))
-            implementation(project(":shared:data:jikan"))
+                
+                // Domain layer (业务逻辑)
+                implementation(project(":shared:domain:discover"))
+                implementation(project(":shared:domain:feed"))
+                
+                // Core modules
+                implementation(project(":shared:core:model"))
+                implementation(project(":shared:core:ui"))
+                
+                // 图片加载
+                implementation(libs.coil.compose)
+                implementation(libs.coil.network.ktor)
             }
         }
         val commonTest by getting {
@@ -38,7 +47,7 @@ kotlin {
             dependencies { implementation(compose.html.core) }
         }
     }
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 android {
@@ -46,7 +55,7 @@ android {
     compileSdk = 36
     defaultConfig { minSdk = 24 }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }

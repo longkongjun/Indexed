@@ -13,8 +13,15 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.serialization.json.Json
 
+/**
+ * Desktop 应用的入口（Discover 功能）
+ * 
+ * 展示如何在 Desktop 平台使用依赖注入
+ */
 fun main() = application {
-    // 创建 HttpClient
+    // ========================================
+    // 1. 创建 HttpClient (Desktop 使用 CIO 引擎)
+    // ========================================
     val httpClient = HttpClient(CIO) {
         install(ContentNegotiation) {
             json(Json {
@@ -26,18 +33,25 @@ fun main() = application {
         
         install(Logging) {
             logger = Logger.DEFAULT
-            level = LogLevel.ALL  // 显示所有日志：请求头、请求体、响应头、响应体
+            level = LogLevel.INFO
         }
     }
     
-    // 创建依赖注入容器
+    // ========================================
+    // 2. 创建依赖注入容器
+    // ========================================
     val dependencyContainer = DependencyContainer(httpClient)
     
-    // 创建 ViewModel
+    // ========================================
+    // 3. 创建 ViewModel
+    // ========================================
     val viewModel = dependencyContainer.createDiscoverViewModel(
         coroutineScope = CoroutineScope(Dispatchers.Default)
     )
     
+    // ========================================
+    // 4. 创建窗口
+    // ========================================
     Window(
         onCloseRequest = ::exitApplication,
         title = "Indexed Comics - Discover"
@@ -45,8 +59,9 @@ fun main() = application {
         DiscoverScreen(
             viewModel = viewModel,
             onNavigateToDetail = { animeId ->
-                println("Navigate to anime detail: $animeId")
+                println("Navigate to detail: $animeId")
             }
         )
     }
 }
+

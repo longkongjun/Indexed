@@ -9,25 +9,11 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.pusu.indexed.androidapp"
+        applicationId = "com.pusu.indexed.comics"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-    }
-
-    flavorDimensions += "app"
-    productFlavors {
-        create("demo") {
-            dimension = "app"
-            applicationId = "com.pusu.indexed.comics"
-            namespace = "com.pusu.indexed.comics"
-        }
-        create("shelf") {
-            dimension = "app"
-            applicationId = "com.pusu.indexed.shelf"
-            namespace = "com.pusu.indexed.shelf"
-        }
     }
 
     buildTypes {
@@ -37,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         compose = true
@@ -46,10 +32,20 @@ android {
 }
 
 dependencies {
+    // Shared modules
     implementation(project(":shared:core:ui"))
     implementation(project(":shared:feature:discover"))
     implementation(project(":shared:feature:anime-detail"))
+    implementation(project(":shared:domain:discover"))
+    implementation(project(":shared:data:jikan"))
 
+    // Ktor (用于 DI 容器中创建 HttpClient)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    implementation(libs.ktor.client.logging)
+
+    // Android
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -62,6 +58,6 @@ dependencies {
 
 kotlin {
     compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }

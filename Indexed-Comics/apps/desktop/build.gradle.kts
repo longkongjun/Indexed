@@ -10,9 +10,14 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                // Shared modules
                 implementation(project(":shared:core:ui"))
                 implementation(project(":shared:feature:discover"))
                 implementation(project(":shared:feature:anime-detail"))
+                implementation(project(":shared:domain:discover"))
+                implementation(project(":shared:data:jikan"))
+                
+                // Compose
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
@@ -21,6 +26,12 @@ kotlin {
         val desktopMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
+                
+                // Ktor (用于 DI 容器中创建 HttpClient)
+                implementation(libs.ktor.client.cio)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+                implementation(libs.ktor.client.logging)
             }
         }
         val commonTest by getting {
@@ -29,7 +40,7 @@ kotlin {
             }
         }
     }
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 compose.desktop.application {
