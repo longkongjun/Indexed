@@ -30,9 +30,9 @@ data class DiscoverUiState(
     val currentSeasonAnime: List<AnimeItem> = emptyList(),
     
     /**
-     * 随机推荐
+     * 排行榜列表
      */
-    val randomPick: AnimeItem? = null,
+    val topAnime: List<AnimeItem> = emptyList(),
     
     /**
      * 是否正在刷新
@@ -49,6 +49,6 @@ data class DiscoverUiState(
      * 是否有内容
      */
     val hasContent: Boolean
-        get() = trendingAnime.isNotEmpty() || currentSeasonAnime.isNotEmpty()
+        get() = trendingAnime.isNotEmpty() || currentSeasonAnime.isNotEmpty() || topAnime.isNotEmpty()
 }
 

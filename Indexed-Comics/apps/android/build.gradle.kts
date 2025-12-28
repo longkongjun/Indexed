@@ -45,6 +45,10 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
     implementation(libs.ktor.client.logging)
+    
+    // Coil (图片加载配置)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.ktor)
 
     // Android
     implementation(libs.androidx.activity.compose)

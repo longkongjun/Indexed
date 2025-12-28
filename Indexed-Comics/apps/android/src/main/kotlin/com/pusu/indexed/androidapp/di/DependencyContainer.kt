@@ -8,6 +8,8 @@ import com.pusu.indexed.data.jikan.repository.JikanRelatedAnimeRepository
 import com.pusu.indexed.data.jikan.repository.JikanAnimeRecommendationsRepository
 import com.pusu.indexed.domain.discover.repository.DiscoverRepository
 import com.pusu.indexed.domain.discover.usecase.GetTrendingAnimeUseCase
+import com.pusu.indexed.domain.discover.usecase.GetTopAnimeUseCase
+import com.pusu.indexed.domain.discover.usecase.SearchAnimeUseCase
 import com.pusu.indexed.domain.feed.usecase.GetAnimeDetailUseCase
 import com.pusu.indexed.domain.feed.usecase.GetRelatedAnimeUseCase
 import com.pusu.indexed.domain.feed.usecase.GetAnimeRecommendationsUseCase
@@ -16,6 +18,7 @@ import com.pusu.indexed.jikan.JikanClient
 import com.pusu.indexed.jikan.createJikanApi
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverViewModel
 import com.pusu.indexed.shared.feature.animedetail.presentation.AnimeDetailViewModel
+import com.pusu.indexed.shared.feature.search.presentation.SearchViewModel
 import io.ktor.client.*
 import kotlinx.coroutines.CoroutineScope
 
@@ -108,10 +111,10 @@ class DependencyContainer(
     }
     
     /**
-     * 获取随机动漫的 UseCase
+     * 获取排行榜动漫的 UseCase
      */
-    private val getRandomAnimeUseCase: com.pusu.indexed.domain.discover.usecase.GetRandomAnimeUseCase by lazy {
-        com.pusu.indexed.domain.discover.usecase.GetRandomAnimeUseCase(
+    private val getTopAnimeUseCase: GetTopAnimeUseCase by lazy {
+        GetTopAnimeUseCase(
             repository = discoverRepository
         )
     }
@@ -146,6 +149,15 @@ class DependencyContainer(
         )
     }
     
+    /**
+     * 搜索动漫的 UseCase
+     */
+    private val searchAnimeUseCase: SearchAnimeUseCase by lazy {
+        SearchAnimeUseCase(
+            repository = discoverRepository
+        )
+    }
+    
     // ========================================
     // Feature 层：ViewModel
     // ========================================
@@ -159,7 +171,7 @@ class DependencyContainer(
         return DiscoverViewModel(
             getTrendingAnimeUseCase = getTrendingAnimeUseCase,
             getCurrentSeasonAnimeUseCase = getCurrentSeasonAnimeUseCase,
-            getRandomAnimeUseCase = getRandomAnimeUseCase,
+            getTopAnimeUseCase = getTopAnimeUseCase,
             coroutineScope = coroutineScope
         )
     }
@@ -178,11 +190,22 @@ class DependencyContainer(
         )
     }
     
+    /**
+     * 创建 SearchViewModel
+     * 
+     * @param coroutineScope 协程作用域（由调用方提供，用于管理生命周期）
+     */
+    fun createSearchViewModel(coroutineScope: CoroutineScope): SearchViewModel {
+        return SearchViewModel(
+            searchAnimeUseCase = searchAnimeUseCase,
+            coroutineScope = coroutineScope
+        )
+    }
+    
     // ========================================
     // 未来可以添加更多功能
     // ========================================
     
-    // fun createSearchViewModel(...)
     // fun createFavoriteViewModel(...)
 }
 

@@ -75,5 +75,19 @@ class JikanDiscoverRepository(
         
         mapper.mapToAnimeItemList(response.data ?: emptyList())
     }
+    
+    override suspend fun searchAnime(
+        query: String,
+        page: Int,
+        limit: Int
+    ): Result<List<AnimeItem>> = runCatching {
+        val response = jikanApi.anime.searchAnime(
+            query = query,
+            page = page,
+            limit = limit
+        ).getOrThrow()
+        
+        mapper.mapToAnimeItemList(response.data ?: emptyList())
+    }
 }
 

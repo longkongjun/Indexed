@@ -64,5 +64,19 @@ interface DiscoverRepository {
         page: Int = 1,
         limit: Int = 10
     ): Result<List<AnimeItem>>
+    
+    /**
+     * 搜索动漫
+     * 
+     * @param query 搜索关键词
+     * @param page 页码
+     * @param limit 每页数量
+     * @return Result<List<AnimeItem>>
+     */
+    suspend fun searchAnime(
+        query: String,
+        page: Int = 1,
+        limit: Int = 20
+    ): Result<List<AnimeItem>>
 }
 

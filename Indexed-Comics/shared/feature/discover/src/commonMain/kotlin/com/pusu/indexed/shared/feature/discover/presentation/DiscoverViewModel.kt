@@ -2,7 +2,7 @@ package com.pusu.indexed.shared.feature.discover.presentation
 
 import com.pusu.indexed.domain.discover.usecase.GetTrendingAnimeUseCase
 import com.pusu.indexed.domain.discover.usecase.GetCurrentSeasonAnimeUseCase
-import com.pusu.indexed.domain.discover.usecase.GetRandomAnimeUseCase
+import com.pusu.indexed.domain.discover.usecase.GetTopAnimeUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,7 +31,7 @@ import kotlinx.coroutines.launch
 class DiscoverViewModel(
     private val getTrendingAnimeUseCase: GetTrendingAnimeUseCase,
     private val getCurrentSeasonAnimeUseCase: GetCurrentSeasonAnimeUseCase,
-    private val getRandomAnimeUseCase: GetRandomAnimeUseCase,
+    private val getTopAnimeUseCase: GetTopAnimeUseCase,
     private val coroutineScope: CoroutineScope
 ) {
     // UI 状态流
@@ -54,7 +54,6 @@ class DiscoverViewModel(
         when (intent) {
             is DiscoverIntent.LoadContent -> loadContent()
             is DiscoverIntent.Refresh -> refresh()
-            is DiscoverIntent.GetRandomPick -> getRandomPick()
             is DiscoverIntent.OnAnimeClick -> navigateToDetail(intent.animeId)
             is DiscoverIntent.Retry -> retry()
         }
@@ -74,14 +73,16 @@ class DiscoverViewModel(
             // 2. 并行加载多个数据源
             val trendingResult = getTrendingAnimeUseCase(page = 1, limit = 10)
             val currentSeasonResult = getCurrentSeasonAnimeUseCase(page = 1, limit = 10)
+            val topAnimeResult = getTopAnimeUseCase(page = 1, limit = 10)
             
             // 3. 处理结果
-            if (trendingResult.isSuccess || currentSeasonResult.isSuccess) {
+            if (trendingResult.isSuccess || currentSeasonResult.isSuccess || topAnimeResult.isSuccess) {
                 _uiState.update {
                     it.copy(
                         isLoading = false,
                         trendingAnime = trendingResult.getOrNull() ?: emptyList(),
                         currentSeasonAnime = currentSeasonResult.getOrNull() ?: emptyList(),
+                        topAnime = topAnimeResult.getOrNull() ?: emptyList(),
                         error = null
                     )
                 }
@@ -107,43 +108,26 @@ class DiscoverViewModel(
         coroutineScope.launch {
             _uiState.update { it.copy(isRefreshing = true, error = null) }
             
-            getTrendingAnimeUseCase(page = 1, limit = 10)
-                .onSuccess { animeList ->
-                    _uiState.update {
-                        it.copy(
-                            isRefreshing = false,
-                            trendingAnime = animeList,
-                            error = null
-                        )
-                    }
-                    _uiEvent.emit(DiscoverUiEvent.ShowSuccess("刷新成功"))
-                }
-                .onFailure { error ->
-                    _uiState.update {
-                        it.copy(isRefreshing = false, error = error.message)
-                    }
-                    _uiEvent.emit(
-                        DiscoverUiEvent.ShowError(error.message ?: "刷新失败")
-                    )
-                }
-        }
-    }
-    
-    /**
-     * 获取随机推荐
-     */
-    private fun getRandomPick() {
-        coroutineScope.launch {
-            getRandomAnimeUseCase()
-                .onSuccess { anime ->
-                    _uiState.update { it.copy(randomPick = anime) }
-                    _uiEvent.emit(DiscoverUiEvent.ShowSuccess("发现新动漫！"))
-                }
-                .onFailure { error ->
-                    _uiEvent.emit(
-                        DiscoverUiEvent.ShowError(error.message ?: "获取随机推荐失败")
-                    )
-                }
+            // 并行刷新所有数据
+            val trendingResult = getTrendingAnimeUseCase(page = 1, limit = 10)
+            val currentSeasonResult = getCurrentSeasonAnimeUseCase(page = 1, limit = 10)
+            val topAnimeResult = getTopAnimeUseCase(page = 1, limit = 10)
+            
+            _uiState.update {
+                it.copy(
+                    isRefreshing = false,
+                    trendingAnime = trendingResult.getOrNull() ?: it.trendingAnime,
+                    currentSeasonAnime = currentSeasonResult.getOrNull() ?: it.currentSeasonAnime,
+                    topAnime = topAnimeResult.getOrNull() ?: it.topAnime,
+                    error = null
+                )
+            }
+            
+            if (trendingResult.isSuccess || currentSeasonResult.isSuccess || topAnimeResult.isSuccess) {
+                _uiEvent.emit(DiscoverUiEvent.ShowSuccess("刷新成功"))
+            } else {
+                _uiEvent.emit(DiscoverUiEvent.ShowError("刷新失败，请重试"))
+            }
         }
     }
     

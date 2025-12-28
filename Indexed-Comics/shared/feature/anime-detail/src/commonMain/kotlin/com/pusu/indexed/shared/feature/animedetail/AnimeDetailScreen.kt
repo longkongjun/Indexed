@@ -233,6 +233,7 @@ private fun HeaderSection(
         modifier = Modifier
             .fillMaxWidth()
             .height(400.dp)
+            .background(MaterialTheme.colorScheme.surfaceVariant)  // 占位背景色
     ) {
         // 模糊背景
         AsyncImage(
@@ -336,9 +337,11 @@ private fun ScoreSection(anime: AnimeDetailData) {
         ) {
             // 评分
             anime.score?.let { score ->
+                // 跨平台格式化：保留两位小数
+                val scoreText = ((score * 100).toInt() / 100.0).toString()
                 StatItem(
                     label = "评分",
-                    value = String.format("%.2f", score),
+                    value = scoreText,
                     subtitle = "${anime.scoredBy ?: 0} 人评价"
                 )
             }
@@ -424,7 +427,11 @@ private fun TagsSection(anime: AnimeDetailData) {
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(anime.genres + anime.themes + anime.demographics) { tag ->
+            val allTags = anime.genres + anime.themes + anime.demographics
+            items(
+                items = allTags,
+                key = { tag -> tag }  // ✅ 使用标签文本作为 key
+            ) { tag ->
                 TagChip(text = tag)
             }
         }
@@ -601,7 +608,10 @@ private fun RelatedAnimeSection(
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            items(relatedAnime) { anime ->
+            items(
+                items = relatedAnime,
+                key = { anime -> anime.id }  // ✅ 添加稳定的 key
+            ) { anime ->
                 SmallAnimeCard(
                     anime = anime,
                     onClick = { onAnimeClick(anime.id) }
@@ -634,7 +644,10 @@ private fun RecommendationsSection(
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            items(recommendations) { anime ->
+            items(
+                items = recommendations,
+                key = { anime -> anime.id }  // ✅ 添加稳定的 key
+            ) { anime ->
                 SmallAnimeCard(
                     anime = anime,
                     onClick = { onAnimeClick(anime.id) }
@@ -657,14 +670,19 @@ private fun SmallAnimeCard(
         modifier = Modifier.width(120.dp)
     ) {
         Column {
-            AsyncImage(
-                model = anime.imageUrl,
-                contentDescription = anime.title,
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(160.dp),
-                contentScale = ContentScale.Crop
-            )
+                    .height(160.dp)
+                    .background(MaterialTheme.colorScheme.surfaceVariant)  // 占位背景色
+            ) {
+                AsyncImage(
+                    model = anime.imageUrl,
+                    contentDescription = anime.title,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop
+                )
+            }
             
             Column(
                 modifier = Modifier.padding(8.dp),
@@ -678,8 +696,10 @@ private fun SmallAnimeCard(
                 )
                 
                 anime.score?.let { score ->
+                    // 跨平台格式化：保留一位小数
+                    val scoreText = ((score * 10).toInt() / 10.0).toString()
                     Text(
-                        text = "⭐ ${String.format("%.1f", score)}",
+                        text = "⭐ $scoreText",
                         style = MaterialTheme.typography.labelSmall
                     )
                 }
@@ -693,8 +713,14 @@ private fun SmallAnimeCard(
  */
 private fun formatNumber(number: Int): String {
     return when {
-        number >= 1_000_000 -> String.format("%.1fM", number / 1_000_000.0)
-        number >= 1_000 -> String.format("%.1fK", number / 1_000.0)
+        number >= 1_000_000 -> {
+            val millions = (number / 1_000_000.0 * 10).toInt() / 10.0
+            "${millions}M"
+        }
+        number >= 1_000 -> {
+            val thousands = (number / 1_000.0 * 10).toInt() / 10.0
+            "${thousands}K"
+        }
         else -> number.toString()
     }
 }

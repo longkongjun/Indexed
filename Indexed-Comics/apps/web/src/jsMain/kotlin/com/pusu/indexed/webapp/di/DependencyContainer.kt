@@ -8,7 +8,7 @@ import com.pusu.indexed.data.jikan.repository.JikanRelatedAnimeRepository
 import com.pusu.indexed.data.jikan.repository.JikanAnimeRecommendationsRepository
 import com.pusu.indexed.domain.discover.repository.DiscoverRepository
 import com.pusu.indexed.domain.discover.usecase.GetCurrentSeasonAnimeUseCase
-import com.pusu.indexed.domain.discover.usecase.GetRandomAnimeUseCase
+import com.pusu.indexed.domain.discover.usecase.GetTopAnimeUseCase
 import com.pusu.indexed.domain.discover.usecase.GetTrendingAnimeUseCase
 import com.pusu.indexed.domain.feed.usecase.GetAnimeDetailUseCase
 import com.pusu.indexed.domain.feed.usecase.GetRelatedAnimeUseCase
@@ -67,8 +67,8 @@ class DependencyContainer(
         )
     }
     
-    private val getRandomAnimeUseCase: GetRandomAnimeUseCase by lazy {
-        GetRandomAnimeUseCase(
+    private val getTopAnimeUseCase: GetTopAnimeUseCase by lazy {
+        GetTopAnimeUseCase(
             repository = discoverRepository
         )
     }
@@ -98,7 +98,7 @@ class DependencyContainer(
         return DiscoverViewModel(
             getTrendingAnimeUseCase = getTrendingAnimeUseCase,
             getCurrentSeasonAnimeUseCase = getCurrentSeasonAnimeUseCase,
-            getRandomAnimeUseCase = getRandomAnimeUseCase,
+            getTopAnimeUseCase = getTopAnimeUseCase,
             coroutineScope = coroutineScope
         )
     }

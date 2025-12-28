@@ -18,11 +18,6 @@ sealed interface DiscoverIntent {
     data object Refresh : DiscoverIntent
     
     /**
-     * 获取新的随机推荐
-     */
-    data object GetRandomPick : DiscoverIntent
-    
-    /**
      * 点击动漫
      */
     data class OnAnimeClick(val animeId: Int) : DiscoverIntent

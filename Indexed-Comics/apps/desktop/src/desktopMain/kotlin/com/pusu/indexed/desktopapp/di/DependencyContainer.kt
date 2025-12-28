@@ -8,6 +8,7 @@ import com.pusu.indexed.data.jikan.repository.JikanRelatedAnimeRepository
 import com.pusu.indexed.data.jikan.repository.JikanAnimeRecommendationsRepository
 import com.pusu.indexed.domain.discover.repository.DiscoverRepository
 import com.pusu.indexed.domain.discover.usecase.GetTrendingAnimeUseCase
+import com.pusu.indexed.domain.discover.usecase.GetTopAnimeUseCase
 import com.pusu.indexed.domain.feed.usecase.GetAnimeDetailUseCase
 import com.pusu.indexed.domain.feed.usecase.GetRelatedAnimeUseCase
 import com.pusu.indexed.domain.feed.usecase.GetAnimeRecommendationsUseCase
@@ -108,10 +109,10 @@ class DependencyContainer(
     }
     
     /**
-     * 获取随机动漫的 UseCase
+     * 获取排行榜动漫的 UseCase
      */
-    private val getRandomAnimeUseCase: com.pusu.indexed.domain.discover.usecase.GetRandomAnimeUseCase by lazy {
-        com.pusu.indexed.domain.discover.usecase.GetRandomAnimeUseCase(
+    private val getTopAnimeUseCase: GetTopAnimeUseCase by lazy {
+        GetTopAnimeUseCase(
             repository = discoverRepository
         )
     }
@@ -159,7 +160,7 @@ class DependencyContainer(
         return DiscoverViewModel(
             getTrendingAnimeUseCase = getTrendingAnimeUseCase,
             getCurrentSeasonAnimeUseCase = getCurrentSeasonAnimeUseCase,
-            getRandomAnimeUseCase = getRandomAnimeUseCase,
+            getTopAnimeUseCase = getTopAnimeUseCase,
             coroutineScope = coroutineScope
         )
     }

@@ -1,5 +1,6 @@
 package com.pusu.indexed.shared.feature.discover
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -35,7 +36,8 @@ import com.pusu.indexed.shared.feature.discover.presentation.DiscoverViewModel
 @Composable
 fun DiscoverScreen(
     viewModel: DiscoverViewModel,
-    onNavigateToDetail: (Int) -> Unit = {}
+    onNavigateToDetail: (Int) -> Unit = {},
+    onNavigateToSearch: () -> Unit = {}
 ) {
     // 1. 收集 UI 状态
     val uiState by viewModel.uiState.collectAsState()
@@ -62,7 +64,8 @@ fun DiscoverScreen(
     // 3. 渲染 UI
     DiscoverContent(
         uiState = uiState,
-        onIntent = viewModel::handleIntent
+        onIntent = viewModel::handleIntent,
+        onSearchClick = onNavigateToSearch
     )
 }
 
@@ -78,12 +81,19 @@ fun DiscoverScreen(
 @Composable
 private fun DiscoverContent(
     uiState: DiscoverUiState,
-    onIntent: (DiscoverIntent) -> Unit
+    onIntent: (DiscoverIntent) -> Unit,
+    onSearchClick: () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         // 顶部标题栏
         TopAppBar(
-            title = { Text("发现") }
+            title = { Text("发现") },
+            actions = {
+                // 搜索按钮
+                TextButton(onClick = onSearchClick) {
+                    Text("🔍 搜索")
+                }
+            }
         )
         
         // 主内容区域
@@ -241,145 +251,23 @@ private fun ContentList(
             }
         }
         
-        // 随机推荐区域
-        item {
-            RandomPickSection(
-                randomAnime = uiState.randomPick,
-                onGetRandomClick = { onIntent(DiscoverIntent.GetRandomPick) },
-                onAnimeClick = { animeId ->
-                    onIntent(DiscoverIntent.OnAnimeClick(animeId))
-                }
-            )
-        }
-    }
-}
-
-/**
- * 随机推荐区域
- */
-@Composable
-private fun RandomPickSection(
-    randomAnime: AnimeItem?,
-    onGetRandomClick: () -> Unit,
-    onAnimeClick: (Int) -> Unit
-) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp)
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = "🎲 随机推荐",
-                style = MaterialTheme.typography.titleLarge
-            )
-            Button(onClick = onGetRandomClick) {
-                Text("换一个")
+        // 排行榜区域
+        if (uiState.topAnime.isNotEmpty()) {
+            item {
+                SectionHeader(
+                    title = "🏆 排行榜",
+                    onSeeAllClick = { /* TODO: 跳转到完整排行榜页面 */ }
+                )
             }
-        }
-        
-        Spacer(modifier = Modifier.height(16.dp))
-        
-        if (randomAnime != null) {
-            Card(
-                onClick = { onAnimeClick(randomAnime.id) },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Row(
-                    modifier = Modifier.padding(16.dp)
-                ) {
-                    // 封面
-                    Box(
-                        modifier = Modifier
-                            .width(100.dp)
-                            .height(140.dp)
-                    ) {
-                        AsyncImage(
-                            model = randomAnime.imageUrl,
-                            contentDescription = randomAnime.title,
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier.fillMaxSize()
-                        )
+            
+            item {
+                TrendingAnimeRow(
+                    animeList = uiState.topAnime,
+                    onAnimeClick = { animeId ->
+                        onIntent(DiscoverIntent.OnAnimeClick(animeId))
                     }
-                    
-                    Spacer(modifier = Modifier.width(16.dp))
-                    
-                    // 信息
-                    Column(
-                        modifier = Modifier.weight(1f)
-                    ) {
-                        Text(
-                            text = randomAnime.title,
-                            style = MaterialTheme.typography.titleMedium,
-                            maxLines = 2,
-                            overflow = TextOverflow.Ellipsis
-                        )
-                        
-                        Spacer(modifier = Modifier.height(8.dp))
-                        
-                        randomAnime.score?.let {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                Text(text = "⭐", style = MaterialTheme.typography.bodyMedium)
-                                Spacer(modifier = Modifier.width(4.dp))
-                                Text(
-                                    text = randomAnime.scoreText,
-                                    style = MaterialTheme.typography.bodyMedium,
-                                    color = MaterialTheme.colorScheme.primary
-                                )
-                            }
-                            Spacer(modifier = Modifier.height(4.dp))
-                        }
-                        
-                        randomAnime.type?.let {
-                            Text(
-                                text = it,
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-                        
-                        if (randomAnime.genres.isNotEmpty()) {
-                            Spacer(modifier = Modifier.height(8.dp))
-                            Text(
-                                text = randomAnime.genres.take(3).joinToString(" · "),
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.secondary,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
-                    }
-                }
-            }
-        } else {
-            Card(
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(140.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Text(
-                            text = "🎲",
-                            style = MaterialTheme.typography.displayMedium
-                        )
-                        Text(
-                            text = "点击按钮获取随机推荐",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
-                    }
-                }
+                )
+                Spacer(modifier = Modifier.height(24.dp))
             }
         }
     }
@@ -423,7 +311,10 @@ private fun TrendingAnimeRow(
         contentPadding = PaddingValues(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        items(animeList) { anime ->
+        items(
+            items = animeList,
+            key = { anime -> anime.id }  // ✅ 添加稳定的 key
+        ) { anime ->
             AnimeCard(
                 anime = anime,
                 onClick = { onAnimeClick(anime.id) }
@@ -450,6 +341,7 @@ private fun AnimeCard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(200.dp)
+                    .background(MaterialTheme.colorScheme.surfaceVariant)  // 占位背景色
             ) {
                 AsyncImage(
                     model = anime.imageUrl,
