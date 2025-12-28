@@ -1,3 +1,4 @@
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.window.ComposeUIViewController
 import com.pusu.indexed.shared.feature.discover.DiscoverScreen
@@ -9,6 +10,7 @@ import io.ktor.client.engine.darwin.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.logging.*
 import io.ktor.serialization.kotlinx.json.*
+import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -19,7 +21,7 @@ import kotlinx.serialization.json.Json
  */
 @Composable
 fun IOSApp() {
-    // 创建依赖容器
+    // 创建 HttpClient
     val httpClient = remember {
         HttpClient(Darwin) {
             install(ContentNegotiation) {
@@ -31,49 +33,66 @@ fun IOSApp() {
             }
             install(Logging) {
                 logger = Logger.DEFAULT
-                level = LogLevel.ALL
+                level = LogLevel.INFO
             }
         }
     }
     
+    // 创建依赖容器
     val dependencyContainer = remember { DependencyContainer(httpClient) }
     val scope = remember { CoroutineScope(SupervisorJob() + Dispatchers.Main) }
     
-    // 简单的导航状态管理
-    var currentScreen by remember { mutableStateOf<IOSScreen>(IOSScreen.Discover) }
+    MaterialTheme {
+        AppNavigation(dependencyContainer, scope)
+    }
+}
+
+/**
+ * 应用导航组件
+ */
+@Composable
+private fun AppNavigation(
+    dependencyContainer: DependencyContainer,
+    scope: CoroutineScope
+) {
+    // 当前页面状态
+    var currentScreen by remember { mutableStateOf<Screen>(Screen.Discover) }
+    
+    // 缓存 DiscoverViewModel，避免每次返回时重新创建
+    val discoverViewModel = remember {
+        dependencyContainer.createDiscoverViewModel(scope)
+    }
+    
+    // 缓存 SearchViewModel
+    val searchViewModel = remember {
+        dependencyContainer.createSearchViewModel(scope)
+    }
     
     when (val screen = currentScreen) {
-        is IOSScreen.Discover -> {
-            val viewModel = remember {
-                dependencyContainer.createDiscoverViewModel(scope)
-            }
-            
+        is Screen.Discover -> {
             DiscoverScreen(
-                viewModel = viewModel,
+                viewModel = discoverViewModel,
                 onNavigateToDetail = { animeId ->
-                    currentScreen = IOSScreen.AnimeDetail(animeId)
+                    currentScreen = Screen.AnimeDetail(animeId)
                 },
                 onNavigateToSearch = {
-                    currentScreen = IOSScreen.Search
+                    currentScreen = Screen.Search
                 }
             )
         }
-        is IOSScreen.Search -> {
-            val viewModel = remember {
-                dependencyContainer.createSearchViewModel(scope)
-            }
-            
+        is Screen.Search -> {
             SearchScreen(
-                viewModel = viewModel,
+                viewModel = searchViewModel,
                 onNavigateBack = {
-                    currentScreen = IOSScreen.Discover
+                    currentScreen = Screen.Discover
                 },
                 onNavigateToDetail = { animeId ->
-                    currentScreen = IOSScreen.AnimeDetail(animeId)
+                    currentScreen = Screen.AnimeDetail(animeId)
                 }
             )
         }
-        is IOSScreen.AnimeDetail -> {
+        is Screen.AnimeDetail -> {
+            // 每个详情页使用独立的 ViewModel，根据 animeId 区分
             val viewModel = remember(screen.animeId) {
                 dependencyContainer.createAnimeDetailViewModel(scope)
             }
@@ -82,10 +101,10 @@ fun IOSApp() {
                 animeId = screen.animeId,
                 viewModel = viewModel,
                 onNavigateBack = {
-                    currentScreen = IOSScreen.Discover
+                    currentScreen = Screen.Discover
                 },
                 onNavigateToAnimeDetail = { animeId ->
-                    currentScreen = IOSScreen.AnimeDetail(animeId)
+                    currentScreen = Screen.AnimeDetail(animeId)
                 }
             )
         }
@@ -93,12 +112,20 @@ fun IOSApp() {
 }
 
 /**
- * iOS 屏幕定义
+ * 屏幕定义
  */
-private sealed class IOSScreen {
-    data object Discover : IOSScreen()
-    data object Search : IOSScreen()
-    data class AnimeDetail(val animeId: Int) : IOSScreen()
+private sealed class Screen {
+    data object Discover : Screen()
+    data object Search : Screen()
+    data class AnimeDetail(val animeId: Int) : Screen()
 }
 
-fun MainViewController() = ComposeUIViewController { IOSApp() }
+@OptIn(ExperimentalForeignApi::class)
+fun MainViewController() = ComposeUIViewController(
+    configure = {
+        // 禁用帧率限制检查，允许使用高刷新率
+        enforceStrictPlistSanityCheck = false
+    }
+) { 
+    IOSApp() 
+}
