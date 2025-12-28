@@ -18,6 +18,7 @@ kotlin {
                 implementation(project(":shared:core:model"))
                 implementation(project(":shared:core:network"))
                 implementation(project(":shared:domain:discover"))
+                implementation(project(":shared:domain:feed"))
                 implementation(libs.kotlinx.serialization.json)
             }
         }

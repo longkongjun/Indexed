@@ -1,13 +1,21 @@
 package com.pusu.indexed.desktopapp.di
 
 import com.pusu.indexed.data.jikan.mapper.JikanToDiscoverMapper
+import com.pusu.indexed.data.jikan.mapper.JikanToAnimeDetailMapper
 import com.pusu.indexed.data.jikan.repository.JikanDiscoverRepository
+import com.pusu.indexed.data.jikan.repository.JikanAnimeDetailRepository
+import com.pusu.indexed.data.jikan.repository.JikanRelatedAnimeRepository
+import com.pusu.indexed.data.jikan.repository.JikanAnimeRecommendationsRepository
 import com.pusu.indexed.domain.discover.repository.DiscoverRepository
 import com.pusu.indexed.domain.discover.usecase.GetTrendingAnimeUseCase
+import com.pusu.indexed.domain.feed.usecase.GetAnimeDetailUseCase
+import com.pusu.indexed.domain.feed.usecase.GetRelatedAnimeUseCase
+import com.pusu.indexed.domain.feed.usecase.GetAnimeRecommendationsUseCase
 import com.pusu.indexed.jikan.JikanApi
 import com.pusu.indexed.jikan.JikanClient
 import com.pusu.indexed.jikan.createJikanApi
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverViewModel
+import com.pusu.indexed.shared.feature.animedetail.presentation.AnimeDetailViewModel
 import io.ktor.client.*
 import kotlinx.coroutines.CoroutineScope
 
@@ -58,6 +66,13 @@ class DependencyContainer(
     }
     
     /**
+     * Jikan 到 AnimeDetail 的数据转换器
+     */
+    private val jikanToAnimeDetailMapper: JikanToAnimeDetailMapper by lazy {
+        JikanToAnimeDetailMapper()
+    }
+    
+    /**
      * Discover Repository 实现
      * 
      * Desktop 使用 Jikan API
@@ -101,6 +116,36 @@ class DependencyContainer(
         )
     }
     
+    /**
+     * 获取动漫详情的 UseCase
+     */
+    private val getAnimeDetailUseCase: GetAnimeDetailUseCase by lazy {
+        JikanAnimeDetailRepository(
+            jikanApi = jikanApi,
+            mapper = jikanToAnimeDetailMapper
+        )
+    }
+    
+    /**
+     * 获取相关动漫的 UseCase
+     */
+    private val getRelatedAnimeUseCase: GetRelatedAnimeUseCase by lazy {
+        JikanRelatedAnimeRepository(
+            jikanApi = jikanApi,
+            mapper = jikanToAnimeDetailMapper
+        )
+    }
+    
+    /**
+     * 获取推荐动漫的 UseCase
+     */
+    private val getAnimeRecommendationsUseCase: GetAnimeRecommendationsUseCase by lazy {
+        JikanAnimeRecommendationsRepository(
+            jikanApi = jikanApi,
+            mapper = jikanToAnimeDetailMapper
+        )
+    }
+    
     // ========================================
     // Feature 层：ViewModel
     // ========================================
@@ -119,11 +164,24 @@ class DependencyContainer(
         )
     }
     
+    /**
+     * 创建 AnimeDetailViewModel
+     * 
+     * @param coroutineScope 协程作用域（由调用方提供，用于管理生命周期）
+     */
+    fun createAnimeDetailViewModel(coroutineScope: CoroutineScope): AnimeDetailViewModel {
+        return AnimeDetailViewModel(
+            getAnimeDetailUseCase = getAnimeDetailUseCase,
+            getRelatedAnimeUseCase = getRelatedAnimeUseCase,
+            getAnimeRecommendationsUseCase = getAnimeRecommendationsUseCase,
+            coroutineScope = coroutineScope
+        )
+    }
+    
     // ========================================
     // 未来可以添加更多功能
     // ========================================
     
     // fun createSearchViewModel(...)
-    // fun createDetailViewModel(...)
 }
 

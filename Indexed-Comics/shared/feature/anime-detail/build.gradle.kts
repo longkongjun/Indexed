@@ -19,10 +19,15 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
-            implementation(project(":shared:core:model"))
-            implementation(project(":shared:core:ui"))
-            implementation(project(":shared:domain:feed"))
-            implementation(project(":shared:data:jikan"))
+                implementation(project(":shared:core:model"))
+                implementation(project(":shared:core:ui"))
+                implementation(project(":shared:domain:feed"))
+                implementation(project(":shared:domain:discover"))
+                implementation(project(":shared:data:jikan"))
+                
+                // Coil Image Loading
+                implementation(libs.coil.compose)
+                implementation(libs.coil.network.ktor)
             }
         }
         val commonTest by getting {

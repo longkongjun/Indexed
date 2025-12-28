@@ -14,7 +14,8 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-implementation(project(":shared:core:model")) 
+                implementation(project(":shared:core:model"))
+                implementation(project(":shared:domain:discover"))
             }
         }
         val commonTest by getting {

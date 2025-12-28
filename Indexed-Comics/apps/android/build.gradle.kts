@@ -37,6 +37,7 @@ dependencies {
     implementation(project(":shared:feature:discover"))
     implementation(project(":shared:feature:anime-detail"))
     implementation(project(":shared:domain:discover"))
+    implementation(project(":shared:domain:feed"))
     implementation(project(":shared:data:jikan"))
 
     // Ktor (用于 DI 容器中创建 HttpClient)
