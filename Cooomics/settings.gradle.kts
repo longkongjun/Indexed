@@ -49,6 +49,7 @@ include(":shared:data:jikan")
 // Feature modules
 include(":shared:feature:discover")
 include(":shared:feature:anime-detail")
+include(":shared:feature:search")
 
 // Navigation
 include(":shared:navigation")

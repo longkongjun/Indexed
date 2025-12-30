@@ -2,7 +2,7 @@ package com.pusu.indexed.shared.feature.discover.presentation
 
 import com.pusu.indexed.domain.discover.usecase.GetTrendingAnimeUseCase
 import com.pusu.indexed.domain.discover.usecase.GetCurrentSeasonAnimeUseCase
-import com.pusu.indexed.domain.discover.usecase.GetTopAnimeUseCase
+import com.pusu.indexed.domain.discover.usecase.GetTopRankedAnimeUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,7 +31,7 @@ import kotlinx.coroutines.launch
 class DiscoverViewModel(
     private val getTrendingAnimeUseCase: GetTrendingAnimeUseCase,
     private val getCurrentSeasonAnimeUseCase: GetCurrentSeasonAnimeUseCase,
-    private val getTopAnimeUseCase: GetTopAnimeUseCase,
+    private val getTopRankedAnimeUseCase: GetTopRankedAnimeUseCase,
     private val coroutineScope: CoroutineScope
 ) {
     // UI 状态流
@@ -73,7 +73,7 @@ class DiscoverViewModel(
             // 2. 并行加载多个数据源
             val trendingResult = getTrendingAnimeUseCase(page = 1, limit = 10)
             val currentSeasonResult = getCurrentSeasonAnimeUseCase(page = 1, limit = 10)
-            val topAnimeResult = getTopAnimeUseCase(page = 1, limit = 10)
+            val topAnimeResult = getTopRankedAnimeUseCase(page = 1, limit = 10)
             
             // 3. 处理结果
             if (trendingResult.isSuccess || currentSeasonResult.isSuccess || topAnimeResult.isSuccess) {
@@ -111,7 +111,7 @@ class DiscoverViewModel(
             // 并行刷新所有数据
             val trendingResult = getTrendingAnimeUseCase(page = 1, limit = 10)
             val currentSeasonResult = getCurrentSeasonAnimeUseCase(page = 1, limit = 10)
-            val topAnimeResult = getTopAnimeUseCase(page = 1, limit = 10)
+            val topAnimeResult = getTopRankedAnimeUseCase(page = 1, limit = 10)
             
             _uiState.update {
                 it.copy(
