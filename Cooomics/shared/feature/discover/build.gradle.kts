@@ -24,10 +24,13 @@ kotlin {
                 // Domain layer (业务逻辑)
                 implementation(project(":shared:domain:discover"))
                 implementation(project(":shared:domain:feed"))
-                
+
                 // Core modules
                 implementation(project(":shared:core:model"))
                 implementation(project(":shared:core:ui"))
+                
+                // Feature modules (for navigation types)
+                implementation(project(":shared:feature:anime-detail"))
                 
                 // 图片加载
                 implementation(libs.coil.compose)

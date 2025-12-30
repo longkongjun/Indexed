@@ -42,7 +42,7 @@ fun SplashScreen(
         )
         
         // 停留 1.2 秒
-        delay(1200)
+        delay(500)
         
         // 完成
         onSplashFinished()

@@ -20,6 +20,8 @@ import com.pusu.indexed.jikan.createJikanApi
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverViewModel
 import com.pusu.indexed.shared.feature.animedetail.presentation.AnimeDetailViewModel
 import com.pusu.indexed.shared.feature.search.presentation.SearchViewModel
+import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListViewModel
+import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListType
 import io.ktor.client.*
 import kotlinx.coroutines.CoroutineScope
 
@@ -190,12 +192,31 @@ class DependencyContainer(
     
     /**
      * 创建 SearchViewModel
-     * 
+     *
      * @param coroutineScope 协程作用域（由调用方提供，用于管理生命周期）
      */
     fun createSearchViewModel(coroutineScope: CoroutineScope): SearchViewModel {
         return SearchViewModel(
             searchAnimeUseCase = searchAnimeUseCase,
+            coroutineScope = coroutineScope
+        )
+    }
+
+    /**
+     * 创建 AnimeListViewModel
+     *
+     * @param listType 列表类型（热门、本季新番、排行榜）
+     * @param coroutineScope 协程作用域（由调用方提供，用于管理生命周期）
+     */
+    fun createAnimeListViewModel(
+        listType: AnimeListType,
+        coroutineScope: CoroutineScope
+    ): AnimeListViewModel {
+        return AnimeListViewModel(
+            listType = listType,
+            getTrendingAnimeUseCase = getTrendingAnimeUseCase,
+            getCurrentSeasonAnimeUseCase = getCurrentSeasonAnimeUseCase,
+            getTopRankedAnimeUseCase = getTopRankedAnimeUseCase,
             coroutineScope = coroutineScope
         )
     }

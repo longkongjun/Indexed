@@ -16,16 +16,21 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                // Compose
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
-                implementation(project(":shared:core:model"))
-                implementation(project(":shared:core:ui"))
+                implementation(compose.materialIconsExtended)
+                
+                // Domain layer (业务逻辑)
                 implementation(project(":shared:domain:feed"))
                 implementation(project(":shared:domain:discover"))
-                implementation(project(":shared:data:jikan"))
                 
-                // Coil Image Loading
+                // Core modules
+                implementation(project(":shared:core:model"))
+                implementation(project(":shared:core:ui"))
+                
+                // 图片加载
                 implementation(libs.coil.compose)
                 implementation(libs.coil.network.ktor)
             }

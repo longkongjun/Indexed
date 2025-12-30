@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.pusu.indexed.domain.discover.model.AnimeItem
+import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListType
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverIntent
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverUiEvent
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverUiState
@@ -37,7 +38,8 @@ import com.pusu.indexed.shared.feature.discover.presentation.DiscoverViewModel
 fun DiscoverScreen(
     viewModel: DiscoverViewModel,
     onNavigateToDetail: (Int) -> Unit = {},
-    onNavigateToSearch: () -> Unit = {}
+    onNavigateToSearch: () -> Unit = {},
+    onNavigateToList: (AnimeListType) -> Unit = {}
 ) {
     // 1. 收集 UI 状态
     val uiState by viewModel.uiState.collectAsState()
@@ -65,7 +67,8 @@ fun DiscoverScreen(
     DiscoverContent(
         uiState = uiState,
         onIntent = viewModel::handleIntent,
-        onSearchClick = onNavigateToSearch
+        onSearchClick = onNavigateToSearch,
+        onSeeAllClick = onNavigateToList
     )
 }
 
@@ -82,7 +85,8 @@ fun DiscoverScreen(
 private fun DiscoverContent(
     uiState: DiscoverUiState,
     onIntent: (DiscoverIntent) -> Unit,
-    onSearchClick: () -> Unit
+    onSearchClick: () -> Unit,
+    onSeeAllClick: (AnimeListType) -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         // 顶部标题栏
@@ -115,7 +119,8 @@ private fun DiscoverContent(
             uiState.hasContent -> {
                 ContentList(
                     uiState = uiState,
-                    onIntent = onIntent
+                    onIntent = onIntent,
+                    onSeeAllClick = onSeeAllClick
                 )
             }
             
@@ -205,7 +210,8 @@ private fun EmptyContent() {
 @Composable
 private fun ContentList(
     uiState: DiscoverUiState,
-    onIntent: (DiscoverIntent) -> Unit
+    onIntent: (DiscoverIntent) -> Unit,
+    onSeeAllClick: (AnimeListType) -> Unit
 ) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
@@ -216,7 +222,9 @@ private fun ContentList(
             item {
                 SectionHeader(
                     title = "🔥 热门动漫",
-                    onSeeAllClick = { /* TODO */ }
+                    onSeeAllClick = { 
+                        onSeeAllClick(AnimeListType.Trending)
+                    }
                 )
             }
             
@@ -236,7 +244,9 @@ private fun ContentList(
             item {
                 SectionHeader(
                     title = "📺 本季新番",
-                    onSeeAllClick = { /* TODO */ }
+                    onSeeAllClick = { 
+                        onSeeAllClick(AnimeListType.CurrentSeason)
+                    }
                 )
             }
             
@@ -256,7 +266,9 @@ private fun ContentList(
             item {
                 SectionHeader(
                     title = "🏆 排行榜",
-                    onSeeAllClick = { /* TODO: 跳转到完整排行榜页面 */ }
+                    onSeeAllClick = { 
+                        onSeeAllClick(AnimeListType.TopRanked)
+                    }
                 )
             }
             

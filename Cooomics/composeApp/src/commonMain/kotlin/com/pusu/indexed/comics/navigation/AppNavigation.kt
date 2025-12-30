@@ -8,6 +8,8 @@ import androidx.compose.runtime.setValue
 import com.pusu.indexed.comics.di.DependencyContainer
 import com.pusu.indexed.comics.splash.SplashScreen
 import com.pusu.indexed.shared.feature.animedetail.AnimeDetailScreen
+import com.pusu.indexed.shared.feature.animedetail.animelist.AnimeListScreen
+import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListType
 import com.pusu.indexed.shared.feature.discover.DiscoverScreen
 import com.pusu.indexed.shared.feature.search.SearchScreen
 import kotlinx.coroutines.CoroutineScope
@@ -20,6 +22,7 @@ sealed class Screen {
     data object Discover : Screen()
     data object Search : Screen()
     data class AnimeDetail(val animeId: Int) : Screen()
+    data class AnimeList(val listType: AnimeListType) : Screen()  // 列表页
 }
 
 /**
@@ -61,6 +64,9 @@ fun AppNavigation(
                 },
                 onNavigateToSearch = {
                     currentScreen = Screen.Search
+                },
+                onNavigateToList = { listType ->
+                    currentScreen = Screen.AnimeList(listType)
                 }
             )
         }
@@ -88,6 +94,22 @@ fun AppNavigation(
                     currentScreen = Screen.Discover
                 },
                 onNavigateToAnimeDetail = { animeId ->
+                    currentScreen = Screen.AnimeDetail(animeId)
+                }
+            )
+        }
+        is Screen.AnimeList -> {
+            // 列表页使用独立的 ViewModel，根据 listType 区分
+            val viewModel = remember(screen.listType) {
+                dependencyContainer.createAnimeListViewModel(screen.listType, scope)
+            }
+            
+            AnimeListScreen(
+                viewModel = viewModel,
+                onNavigateBack = {
+                    currentScreen = Screen.Discover
+                },
+                onNavigateToDetail = { animeId ->
                     currentScreen = Screen.AnimeDetail(animeId)
                 }
             )
