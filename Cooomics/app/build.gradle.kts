@@ -62,6 +62,10 @@ kotlin {
             implementation(libs.jetbrains.navigation3.ui)
             implementation(libs.jetbrains.lifecycle.viewmodelNavigation3)
             
+            // Koin 依赖注入（KMP 支持）
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            
             // Shared modules
             implementation(project(":feature:discover"))
             implementation(project(":feature:anime-detail"))

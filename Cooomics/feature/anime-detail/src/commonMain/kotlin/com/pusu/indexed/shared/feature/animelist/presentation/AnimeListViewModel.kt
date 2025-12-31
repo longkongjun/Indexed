@@ -24,20 +24,18 @@ import kotlinx.coroutines.launch
  * 继承自 androidx.lifecycle.ViewModel，使用 viewModelScope 管理协程生命周期
  */
 class AnimeListViewModel(
-    private val listType: AnimeListType,
     private val getTrendingAnimeUseCase: GetTrendingAnimeUseCase,
     private val getCurrentSeasonAnimeUseCase: GetCurrentSeasonAnimeUseCase,
     private val getTopRankedAnimeUseCase: GetTopRankedAnimeUseCase
 ) : ViewModel() {
-    // UI 状态流
+    // 列表类型（通过 initListType 设置）
+    private var listType: AnimeListType? = null
+    
+    // UI 状态流（初始状态，等待 initListType 设置）
     private val _uiState = MutableStateFlow(
         AnimeListUiState(
-            listType = listType,
-            title = when (listType) {
-                AnimeListType.Trending -> "🔥 热门动漫"
-                AnimeListType.CurrentSeason -> "📺 本季新番"
-                AnimeListType.TopRanked -> "🏆 排行榜"
-            }
+            listType = AnimeListType.Trending, // 默认值，会被 initListType 覆盖
+            title = ""
         )
     )
     val uiState = _uiState.asStateFlow()
@@ -48,8 +46,27 @@ class AnimeListViewModel(
 
     // 每页加载数量
     private val pageSize = 20
-
-    init {
+    
+    /**
+     * 初始化列表类型
+     * 必须在创建 ViewModel 后立即调用
+     */
+    fun initListType(type: AnimeListType) {
+        if (listType != null) {
+            // 已经初始化过，不允许重复设置
+            return
+        }
+        
+        listType = type
+        _uiState.value = AnimeListUiState(
+            listType = type,
+            title = when (type) {
+                AnimeListType.Trending -> "🔥 热门动漫"
+                AnimeListType.CurrentSeason -> "📺 本季新番"
+                AnimeListType.TopRanked -> "🏆 排行榜"
+            }
+        )
+        
         // 初始加载
         handleIntent(AnimeListIntent.LoadInitial)
     }
@@ -201,7 +218,9 @@ class AnimeListViewModel(
      * 根据列表类型加载数据
      */
     private suspend fun loadData(page: Int): Result<List<com.pusu.indexed.domain.anime.model.AnimeItem>> {
-        return when (listType) {
+        val currentListType = listType ?: return Result.failure(IllegalStateException("ListType not initialized"))
+        
+        return when (currentListType) {
             AnimeListType.Trending -> {
                 getTrendingAnimeUseCase(page = page, limit = pageSize)
             }

@@ -2,7 +2,6 @@ package com.pusu.indexed.comics.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -10,19 +9,22 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import androidx.savedstate.serialization.SavedStateConfiguration
-import com.pusu.indexed.comics.di.DependencyContainer
 import com.pusu.indexed.comics.splash.SplashScreen
 import com.pusu.indexed.shared.feature.animedetail.AnimeDetailScreen
 import com.pusu.indexed.shared.feature.animedetail.animelist.AnimeListScreen
 import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListType
+import com.pusu.indexed.shared.feature.animedetail.presentation.AnimeDetailViewModel
 import com.pusu.indexed.shared.feature.discover.DiscoverScreen
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverViewModel
 import com.pusu.indexed.shared.feature.search.SearchScreen
-import kotlinx.coroutines.CoroutineScope
+import com.pusu.indexed.shared.feature.search.presentation.SearchViewModel
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
+import androidx.compose.runtime.LaunchedEffect
+import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListViewModel
+import org.koin.compose.koinInject
 
 /**
  * 导航目标定义
@@ -70,9 +72,7 @@ private val savedStateConfig = SavedStateConfiguration {
  * 使用 Navigation3 (Multiplatform) 实现类型安全的导航
  */
 @Composable
-fun AppNavigation(
-    dependencyContainer: DependencyContainer
-) {
+fun AppNavigation() {
     // 创建导航返回栈，从 Splash 页面开始，使用配置好的序列化模块
     val backStack = rememberNavBackStack(savedStateConfig, Screen.Splash)
 
@@ -99,12 +99,10 @@ fun AppNavigation(
                 )
             }
 
-            // 发现页（主页）
-            entry<Screen.Discover> {
-                // 使用 Navigation3 的 ViewModel 能力，自动管理生命周期
-                val viewModel = viewModel {
-                    dependencyContainer.createDiscoverViewModel()
-                }
+                    // 发现页（主页）
+                    entry<Screen.Discover> {
+                        // 使用 Koin Compose 注入 ViewModel
+                        val viewModel: DiscoverViewModel = koinInject<DiscoverViewModel>()
 
                 DiscoverScreen(
                     viewModel = viewModel,
@@ -120,12 +118,10 @@ fun AppNavigation(
                 )
             }
 
-            // 搜索页
-            entry<Screen.Search> {
-                // 使用 Navigation3 的 ViewModel 能力，自动管理生命周期
-                val viewModel = viewModel {
-                    dependencyContainer.createSearchViewModel()
-                }
+                    // 搜索页
+                    entry<Screen.Search> {
+                        // 使用 Koin Compose 注入 ViewModel
+                        val viewModel: SearchViewModel = koinInject<SearchViewModel>()
 
                 SearchScreen(
                     viewModel = viewModel,
@@ -140,11 +136,8 @@ fun AppNavigation(
 
             // 动漫详情页
             entry<Screen.AnimeDetail> { screen ->
-                // 使用 Navigation3 的 ViewModel 能力，自动管理生命周期
-                // 每个不同的 animeId 会创建独立的 ViewModel 实例
-                val viewModel = viewModel(key = "AnimeDetail_${screen.animeId}") {
-                    dependencyContainer.createAnimeDetailViewModel()
-                }
+                // 使用 Koin Compose 注入 ViewModel（每次导航创建新实例）
+                val viewModel: AnimeDetailViewModel = koinInject<AnimeDetailViewModel>()
 
                 AnimeDetailScreen(
                     animeId = screen.animeId,
@@ -162,10 +155,12 @@ fun AppNavigation(
             entry<Screen.AnimeList> { screen ->
                 val listType = AnimeListType.valueOf(screen.listType)
 
-                // 使用 Navigation3 的 ViewModel 能力，自动管理生命周期
-                // 每个不同的 listType 会创建独立的 ViewModel 实例
-                val viewModel = viewModel(key = "AnimeList_${listType.name}") {
-                    dependencyContainer.createAnimeListViewModel(listType)
+                // 使用 Koin Compose 注入 ViewModel
+                val viewModel: AnimeListViewModel = koinInject<AnimeListViewModel>()
+                
+                // 初始化列表类型（使用 LaunchedEffect 确保每个 ViewModel 实例只初始化一次）
+                LaunchedEffect(viewModel) {
+                    viewModel.initListType(listType)
                 }
 
                 AnimeListScreen(
