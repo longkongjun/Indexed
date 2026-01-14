@@ -20,6 +20,7 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
+                implementation(compose.materialIconsExtended)
                 
                 // Domain layer (业务逻辑)
                 implementation(project(":domain:anime"))

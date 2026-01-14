@@ -24,6 +24,8 @@ import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 import androidx.compose.runtime.LaunchedEffect
 import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListViewModel
+import com.pusu.indexed.shared.feature.discover.filter.FilterScreen
+import com.pusu.indexed.shared.feature.discover.filter.presentation.FilterViewModel
 import org.koin.compose.koinInject
 
 /**
@@ -43,6 +45,9 @@ sealed interface Screen {
     data object Search : Screen, NavKey
 
     @Serializable
+    data object Filter : Screen, NavKey
+
+    @Serializable
     data class AnimeDetail(val animeId: Int) : Screen, NavKey
 
     @Serializable
@@ -60,6 +65,7 @@ private val savedStateConfig = SavedStateConfiguration {
             subclass(Screen.Splash::class)
             subclass(Screen.Discover::class)
             subclass(Screen.Search::class)
+            subclass(Screen.Filter::class)
             subclass(Screen.AnimeDetail::class)
             subclass(Screen.AnimeList::class)
         }
@@ -112,6 +118,9 @@ fun AppNavigation() {
                     onNavigateToSearch = {
                         backStack.add(Screen.Search)
                     },
+                    onNavigateToFilter = {
+                        backStack.add(Screen.Filter)
+                    },
                     onNavigateToList = { listType ->
                         backStack.add(Screen.AnimeList(listType.name))
                     }
@@ -124,6 +133,22 @@ fun AppNavigation() {
                         val viewModel: SearchViewModel = koinInject<SearchViewModel>()
 
                 SearchScreen(
+                    viewModel = viewModel,
+                    onNavigateBack = {
+                        backStack.removeLastOrNull()
+                    },
+                    onNavigateToDetail = { animeId ->
+                        backStack.add(Screen.AnimeDetail(animeId))
+                    }
+                )
+            }
+
+            // 筛选页
+            entry<Screen.Filter> {
+                // 使用 Koin Compose 注入 ViewModel
+                val viewModel: FilterViewModel = koinInject<FilterViewModel>()
+
+                FilterScreen(
                     viewModel = viewModel,
                     onNavigateBack = {
                         backStack.removeLastOrNull()

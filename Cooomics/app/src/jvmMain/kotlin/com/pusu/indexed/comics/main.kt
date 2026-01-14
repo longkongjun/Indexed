@@ -5,7 +5,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import com.pusu.indexed.comics.di.appModule
-import com.pusu.indexed.comics.di.koinInstance
 import com.pusu.indexed.comics.navigation.AppNavigation
 import com.pusu.indexed.comics.platform.createHttpClient
 import org.koin.core.context.startKoin
@@ -20,10 +19,9 @@ fun main() = application {
 
         // 初始化 Koin
         remember {
-            val koinApp = startKoin {
+            startKoin {
                 modules(appModule(httpClient))
             }
-            koinInstance = koinApp.koin
         }
 
         MaterialTheme {

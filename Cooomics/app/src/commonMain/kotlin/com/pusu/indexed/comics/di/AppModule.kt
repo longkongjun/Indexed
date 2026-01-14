@@ -14,6 +14,7 @@ import com.pusu.indexed.domain.anime.usecase.GetRelatedAnimeUseCase
 import com.pusu.indexed.domain.anime.usecase.GetTopRankedAnimeUseCase
 import com.pusu.indexed.domain.anime.usecase.GetTrendingAnimeUseCase
 import com.pusu.indexed.domain.anime.usecase.SearchAnimeUseCase
+import com.pusu.indexed.domain.anime.usecase.FilterAnimeUseCase
 import com.pusu.indexed.jikan.JikanApi
 import com.pusu.indexed.jikan.JikanClient
 import com.pusu.indexed.jikan.createJikanApi
@@ -21,6 +22,7 @@ import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeL
 import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListViewModel
 import com.pusu.indexed.shared.feature.animedetail.presentation.AnimeDetailViewModel
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverViewModel
+import com.pusu.indexed.shared.feature.discover.filter.presentation.FilterViewModel
 import com.pusu.indexed.shared.feature.search.presentation.SearchViewModel
 import io.ktor.client.HttpClient
 import org.koin.core.module.dsl.factoryOf
@@ -101,6 +103,7 @@ fun appModule(httpClient: HttpClient) = module {
     singleOf(::GetCurrentSeasonAnimeUseCase)
     singleOf(::GetTopRankedAnimeUseCase)
     singleOf(::SearchAnimeUseCase)
+    singleOf(::FilterAnimeUseCase)
     
     // ========================================
     // Feature 层：ViewModel
@@ -126,6 +129,12 @@ fun appModule(httpClient: HttpClient) = module {
     factory<SearchViewModel> {
         SearchViewModel(
             searchAnimeUseCase = get()
+        )
+    }
+    
+    factory<FilterViewModel> {
+        FilterViewModel(
+            filterAnimeUseCase = get()
         )
     }
     
