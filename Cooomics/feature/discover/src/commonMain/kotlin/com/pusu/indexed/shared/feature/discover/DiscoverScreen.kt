@@ -40,6 +40,7 @@ fun DiscoverScreen(
     onNavigateToDetail: (Int) -> Unit = {},
     onNavigateToSearch: () -> Unit = {},
     onNavigateToFilter: () -> Unit = {},
+    onNavigateToSubscription: () -> Unit = {},
     onNavigateToList: (AnimeListType) -> Unit = {}
 ) {
     // 1. 收集 UI 状态
@@ -70,6 +71,7 @@ fun DiscoverScreen(
         onIntent = viewModel::handleIntent,
         onSearchClick = onNavigateToSearch,
         onFilterClick = onNavigateToFilter,
+        onSubscriptionClick = onNavigateToSubscription,
         onSeeAllClick = onNavigateToList
     )
 }
@@ -89,6 +91,7 @@ private fun DiscoverContent(
     onIntent: (DiscoverIntent) -> Unit,
     onSearchClick: () -> Unit,
     onFilterClick: () -> Unit,
+    onSubscriptionClick: () -> Unit,
     onSeeAllClick: (AnimeListType) -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
@@ -99,6 +102,10 @@ private fun DiscoverContent(
                 // 筛选按钮
                 TextButton(onClick = onFilterClick) {
                     Text("🎯 筛选")
+                }
+                // 订阅按钮
+                TextButton(onClick = onSubscriptionClick) {
+                    Text("📌 订阅")
                 }
                 // 搜索按钮
                 TextButton(onClick = onSearchClick) {

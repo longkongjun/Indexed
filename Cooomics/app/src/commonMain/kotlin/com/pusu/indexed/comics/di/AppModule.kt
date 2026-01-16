@@ -24,6 +24,7 @@ import com.pusu.indexed.shared.feature.animedetail.presentation.AnimeDetailViewM
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverViewModel
 import com.pusu.indexed.shared.feature.discover.filter.presentation.FilterViewModel
 import com.pusu.indexed.shared.feature.search.presentation.SearchViewModel
+import com.pusu.indexed.shared.feature.subscription.presentation.SubscriptionViewModel
 import io.ktor.client.HttpClient
 import org.koin.core.module.dsl.factoryOf
 import org.koin.core.module.dsl.singleOf
@@ -136,6 +137,10 @@ fun appModule(httpClient: HttpClient) = module {
         FilterViewModel(
             filterAnimeUseCase = get()
         )
+    }
+
+    factory<SubscriptionViewModel> {
+        SubscriptionViewModel()
     }
     
     // AnimeListViewModel 使用 factory，通过 initListType 设置参数

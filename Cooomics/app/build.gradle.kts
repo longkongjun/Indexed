@@ -70,6 +70,7 @@ kotlin {
             implementation(project(":feature:discover"))
             implementation(project(":feature:anime-detail"))
             implementation(project(":feature:search"))
+            implementation(project(":feature:subscription"))
             implementation(project(":domain:anime"))
             implementation(project(":data:jikan"))
             

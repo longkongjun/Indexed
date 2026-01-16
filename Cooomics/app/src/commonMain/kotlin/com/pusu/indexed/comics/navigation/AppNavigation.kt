@@ -18,6 +18,8 @@ import com.pusu.indexed.shared.feature.discover.DiscoverScreen
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverViewModel
 import com.pusu.indexed.shared.feature.search.SearchScreen
 import com.pusu.indexed.shared.feature.search.presentation.SearchViewModel
+import com.pusu.indexed.shared.feature.subscription.SubscriptionScreen
+import com.pusu.indexed.shared.feature.subscription.presentation.SubscriptionViewModel
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
@@ -48,6 +50,9 @@ sealed interface Screen {
     data object Filter : Screen, NavKey
 
     @Serializable
+    data object Subscription : Screen, NavKey
+
+    @Serializable
     data class AnimeDetail(val animeId: Int) : Screen, NavKey
 
     @Serializable
@@ -66,6 +71,7 @@ private val savedStateConfig = SavedStateConfiguration {
             subclass(Screen.Discover::class)
             subclass(Screen.Search::class)
             subclass(Screen.Filter::class)
+            subclass(Screen.Subscription::class)
             subclass(Screen.AnimeDetail::class)
             subclass(Screen.AnimeList::class)
         }
@@ -121,6 +127,9 @@ fun AppNavigation() {
                     onNavigateToFilter = {
                         backStack.add(Screen.Filter)
                     },
+                    onNavigateToSubscription = {
+                        backStack.add(Screen.Subscription)
+                    },
                     onNavigateToList = { listType ->
                         backStack.add(Screen.AnimeList(listType.name))
                     }
@@ -149,6 +158,21 @@ fun AppNavigation() {
                 val viewModel: FilterViewModel = koinInject<FilterViewModel>()
 
                 FilterScreen(
+                    viewModel = viewModel,
+                    onNavigateBack = {
+                        backStack.removeLastOrNull()
+                    },
+                    onNavigateToDetail = { animeId ->
+                        backStack.add(Screen.AnimeDetail(animeId))
+                    }
+                )
+            }
+
+            // 我的订阅页
+            entry<Screen.Subscription> {
+                val viewModel: SubscriptionViewModel = koinInject<SubscriptionViewModel>()
+
+                SubscriptionScreen(
                     viewModel = viewModel,
                     onNavigateBack = {
                         backStack.removeLastOrNull()
