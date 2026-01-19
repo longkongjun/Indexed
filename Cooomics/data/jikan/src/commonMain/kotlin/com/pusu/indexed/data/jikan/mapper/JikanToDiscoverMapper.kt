@@ -23,6 +23,8 @@ class JikanToDiscoverMapper {
         return AnimeItem(
             id = jikanAnime.malId,
             title = jikanAnime.title,
+            titleEnglish = jikanAnime.titleEnglish,
+            titleJapanese = jikanAnime.titleJapanese,
             imageUrl = extractImageUrl(jikanAnime),
             score = jikanAnime.score,
             rank = jikanAnime.rank,

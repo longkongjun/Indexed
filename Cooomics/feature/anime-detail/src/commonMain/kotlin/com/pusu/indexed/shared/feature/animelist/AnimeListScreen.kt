@@ -16,6 +16,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.pusu.indexed.core.locale.AppLanguage
+import com.pusu.indexed.core.locale.resolveTitle
 import com.pusu.indexed.domain.anime.model.AnimeItem
 import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListIntent
 import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListUiEvent
@@ -33,6 +35,7 @@ import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeL
 @Composable
 fun AnimeListScreen(
     viewModel: AnimeListViewModel,
+    appLanguage: AppLanguage,
     onNavigateBack: () -> Unit = {},
     onNavigateToDetail: (Int) -> Unit = {}
 ) {
@@ -51,6 +54,7 @@ fun AnimeListScreen(
 
     AnimeListContent(
         uiState = uiState,
+        appLanguage = appLanguage,
         onIntent = viewModel::handleIntent,
         onNavigateBack = onNavigateBack
     )
@@ -63,6 +67,7 @@ fun AnimeListScreen(
 @Composable
 private fun AnimeListContent(
     uiState: AnimeListUiState,
+    appLanguage: AppLanguage,
     onIntent: (AnimeListIntent) -> Unit,
     onNavigateBack: () -> Unit
 ) {
@@ -103,6 +108,7 @@ private fun AnimeListContent(
                 uiState.hasContent -> {
                     AnimeGridList(
                         uiState = uiState,
+                        appLanguage = appLanguage,
                         onIntent = onIntent
                     )
                 }
@@ -117,6 +123,7 @@ private fun AnimeListContent(
 @Composable
 private fun AnimeGridList(
     uiState: AnimeListUiState,
+    appLanguage: AppLanguage,
     onIntent: (AnimeListIntent) -> Unit
 ) {
     val listState = rememberLazyGridState()
@@ -158,6 +165,7 @@ private fun AnimeGridList(
             ) { anime ->
                 AnimeGridItem(
                     anime = anime,
+                    appLanguage = appLanguage,
                     onClick = { onIntent(AnimeListIntent.OnAnimeClick(anime.id)) }
                 )
             }
@@ -203,8 +211,15 @@ private fun AnimeGridList(
 @Composable
 private fun AnimeGridItem(
     anime: AnimeItem,
+    appLanguage: AppLanguage,
     onClick: () -> Unit
 ) {
+    val displayTitle = resolveTitle(
+        defaultTitle = anime.title,
+        titleEnglish = anime.titleEnglish,
+        titleJapanese = anime.titleJapanese,
+        language = appLanguage
+    )
     Card(
         onClick = onClick,
         modifier = Modifier
@@ -215,7 +230,7 @@ private fun AnimeGridItem(
             // 封面图片
             AsyncImage(
                 model = anime.imageUrl,
-                contentDescription = anime.title,
+                contentDescription = displayTitle,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -229,7 +244,7 @@ private fun AnimeGridItem(
                     .padding(8.dp)
             ) {
                 Text(
-                    text = anime.title,
+                    text = displayTitle,
                     style = MaterialTheme.typography.bodyMedium,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis

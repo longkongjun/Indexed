@@ -142,6 +142,7 @@ fun appModule(httpClient: HttpClient) = module {
     factory<SubscriptionViewModel> {
         SubscriptionViewModel()
     }
+
     
     // AnimeListViewModel 使用 factory，通过 initListType 设置参数
     factory<com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListViewModel> {

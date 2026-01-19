@@ -16,6 +16,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.pusu.indexed.core.locale.AppLanguage
+import com.pusu.indexed.core.locale.resolveTitle
 import com.pusu.indexed.domain.anime.model.AnimeItem
 import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListType
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverIntent
@@ -40,10 +42,12 @@ import kotlinx.coroutines.launch
 @Composable
 fun DiscoverScreen(
     viewModel: DiscoverViewModel,
+    appLanguage: AppLanguage,
     onNavigateToDetail: (Int) -> Unit = {},
     onNavigateToSearch: () -> Unit = {},
     onNavigateToFilter: () -> Unit = {},
     onNavigateToSubscription: () -> Unit = {},
+    onNavigateToSettings: () -> Unit = {},
     onNavigateToList: (AnimeListType) -> Unit = {}
 ) {
     // 1. 收集 UI 状态
@@ -71,10 +75,12 @@ fun DiscoverScreen(
     // 3. 渲染 UI
     DiscoverContent(
         uiState = uiState,
+        appLanguage = appLanguage,
         onIntent = viewModel::handleIntent,
         onSearchClick = onNavigateToSearch,
         onFilterClick = onNavigateToFilter,
         onSubscriptionClick = onNavigateToSubscription,
+        onSettingsClick = onNavigateToSettings,
         onSeeAllClick = onNavigateToList
     )
 }
@@ -91,10 +97,12 @@ fun DiscoverScreen(
 @Composable
 private fun DiscoverContent(
     uiState: DiscoverUiState,
+    appLanguage: AppLanguage,
     onIntent: (DiscoverIntent) -> Unit,
     onSearchClick: () -> Unit,
     onFilterClick: () -> Unit,
     onSubscriptionClick: () -> Unit,
+    onSettingsClick: () -> Unit,
     onSeeAllClick: (AnimeListType) -> Unit
 ) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -124,6 +132,15 @@ private fun DiscoverContent(
                     onClick = {
                         scope.launch { drawerState.close() }
                         onSubscriptionClick()
+                    },
+                    modifier = Modifier.padding(horizontal = 12.dp)
+                )
+                NavigationDrawerItem(
+                    label = { Text("设置") },
+                    selected = false,
+                    onClick = {
+                        scope.launch { drawerState.close() }
+                        onSettingsClick()
                     },
                     modifier = Modifier.padding(horizontal = 12.dp)
                 )
@@ -171,6 +188,7 @@ private fun DiscoverContent(
                 uiState.hasContent -> {
                     ContentList(
                         uiState = uiState,
+                    appLanguage = appLanguage,
                         onIntent = onIntent,
                         onSeeAllClick = onSeeAllClick
                     )
@@ -263,6 +281,7 @@ private fun EmptyContent() {
 @Composable
 private fun ContentList(
     uiState: DiscoverUiState,
+    appLanguage: AppLanguage,
     onIntent: (DiscoverIntent) -> Unit,
     onSeeAllClick: (AnimeListType) -> Unit
 ) {
@@ -284,6 +303,7 @@ private fun ContentList(
             item {
                 TrendingAnimeRow(
                     animeList = uiState.trendingAnime,
+                    appLanguage = appLanguage,
                     onAnimeClick = { animeId ->
                         onIntent(DiscoverIntent.OnAnimeClick(animeId))
                     }
@@ -306,6 +326,7 @@ private fun ContentList(
             item {
                 TrendingAnimeRow(
                     animeList = uiState.currentSeasonAnime,
+                    appLanguage = appLanguage,
                     onAnimeClick = { animeId ->
                         onIntent(DiscoverIntent.OnAnimeClick(animeId))
                     }
@@ -328,6 +349,7 @@ private fun ContentList(
             item {
                 TrendingAnimeRow(
                     animeList = uiState.topAnime,
+                    appLanguage = appLanguage,
                     onAnimeClick = { animeId ->
                         onIntent(DiscoverIntent.OnAnimeClick(animeId))
                     }
@@ -370,6 +392,7 @@ private fun SectionHeader(
 @Composable
 private fun TrendingAnimeRow(
     animeList: List<AnimeItem>,
+    appLanguage: AppLanguage,
     onAnimeClick: (Int) -> Unit
 ) {
     LazyRow(
@@ -382,6 +405,7 @@ private fun TrendingAnimeRow(
         ) { anime ->
             AnimeCard(
                 anime = anime,
+                appLanguage = appLanguage,
                 onClick = { onAnimeClick(anime.id) }
             )
         }
@@ -394,8 +418,15 @@ private fun TrendingAnimeRow(
 @Composable
 private fun AnimeCard(
     anime: AnimeItem,
+    appLanguage: AppLanguage,
     onClick: () -> Unit
 ) {
+    val displayTitle = resolveTitle(
+        defaultTitle = anime.title,
+        titleEnglish = anime.titleEnglish,
+        titleJapanese = anime.titleJapanese,
+        language = appLanguage
+    )
     Card(
         onClick = onClick,
         modifier = Modifier.width(150.dp)
@@ -410,7 +441,7 @@ private fun AnimeCard(
             ) {
                 AsyncImage(
                     model = anime.imageUrl,
-                    contentDescription = anime.title,
+                    contentDescription = displayTitle,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
                 )
@@ -437,7 +468,7 @@ private fun AnimeCard(
                 modifier = Modifier.padding(12.dp)
             ) {
                 Text(
-                    text = anime.title,
+                    text = displayTitle,
                     style = MaterialTheme.typography.bodyMedium,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis

@@ -71,6 +71,8 @@ kotlin {
             implementation(project(":feature:anime-detail"))
             implementation(project(":feature:search"))
             implementation(project(":feature:subscription"))
+            implementation(project(":feature:settings"))
+            implementation(project(":core:utils"))
             implementation(project(":domain:anime"))
             implementation(project(":data:jikan"))
             

@@ -16,6 +16,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.pusu.indexed.core.locale.AppLanguage
+import com.pusu.indexed.core.locale.resolveTitle
 import com.pusu.indexed.domain.anime.model.AnimeItem
 import com.pusu.indexed.shared.feature.search.presentation.SearchIntent
 import com.pusu.indexed.shared.feature.search.presentation.SearchUiEvent
@@ -31,6 +33,7 @@ import com.pusu.indexed.shared.feature.search.presentation.SearchViewModel
 @Composable
 fun SearchScreen(
     viewModel: SearchViewModel,
+    appLanguage: AppLanguage,
     onNavigateBack: () -> Unit = {},
     onNavigateToDetail: (Int) -> Unit = {}
 ) {
@@ -94,6 +97,7 @@ fun SearchScreen(
             uiState.hasResults -> {
                 SearchResults(
                     results = uiState.results,
+                    appLanguage = appLanguage,
                     onAnimeClick = { animeId ->
                         viewModel.handleIntent(SearchIntent.OnAnimeClick(animeId))
                     }
@@ -153,6 +157,7 @@ private fun SearchBar(
 @Composable
 private fun SearchResults(
     results: List<AnimeItem>,
+    appLanguage: AppLanguage,
     onAnimeClick: (Int) -> Unit
 ) {
     LazyColumn(
@@ -163,6 +168,7 @@ private fun SearchResults(
         items(results) { anime ->
             AnimeItemCard(
                 anime = anime,
+                appLanguage = appLanguage,
                 onClick = { onAnimeClick(anime.id) }
             )
         }
@@ -172,8 +178,15 @@ private fun SearchResults(
 @Composable
 private fun AnimeItemCard(
     anime: AnimeItem,
+    appLanguage: AppLanguage,
     onClick: () -> Unit
 ) {
+    val displayTitle = resolveTitle(
+        defaultTitle = anime.title,
+        titleEnglish = anime.titleEnglish,
+        titleJapanese = anime.titleJapanese,
+        language = appLanguage
+    )
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -188,7 +201,7 @@ private fun AnimeItemCard(
         ) {
             AsyncImage(
                 model = anime.imageUrl,
-                contentDescription = anime.title,
+                contentDescription = displayTitle,
                 modifier = Modifier
                     .size(80.dp)
                     .aspectRatio(3f / 4f),
@@ -200,7 +213,7 @@ private fun AnimeItemCard(
                 verticalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 Text(
-                    text = anime.title,
+                    text = displayTitle,
                     style = MaterialTheme.typography.titleMedium,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis

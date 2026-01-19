@@ -24,6 +24,9 @@ kotlin {
                 
                 // Domain layer (业务逻辑)
                 implementation(project(":domain:anime"))
+
+                // Core utils
+                implementation(project(":core:utils"))
                 
                 // 图片加载
                 implementation(libs.coil.compose)

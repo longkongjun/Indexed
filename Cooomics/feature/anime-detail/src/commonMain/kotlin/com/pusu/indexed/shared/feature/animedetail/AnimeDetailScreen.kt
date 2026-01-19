@@ -20,6 +20,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import com.pusu.indexed.core.locale.AppLanguage
+import com.pusu.indexed.core.locale.resolveTitle
 import com.pusu.indexed.domain.anime.model.AnimeItem
 import com.pusu.indexed.domain.anime.model.AnimeDetailData
 import com.pusu.indexed.shared.feature.animedetail.presentation.AnimeDetailViewModel
@@ -35,6 +37,7 @@ import kotlinx.coroutines.flow.collectLatest
 fun AnimeDetailScreen(
     animeId: Int,
     viewModel: AnimeDetailViewModel,
+    appLanguage: AppLanguage,
     onNavigateBack: () -> Unit,
     onNavigateToAnimeDetail: (Int) -> Unit
 ) {
@@ -70,7 +73,20 @@ fun AnimeDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(uiState.anime?.title ?: "详情") },
+                title = {
+                    val anime = uiState.anime
+                    val title = if (anime == null) {
+                        "详情"
+                    } else {
+                        resolveTitle(
+                            defaultTitle = anime.title,
+                            titleEnglish = anime.titleEnglish,
+                            titleJapanese = anime.titleJapanese,
+                            language = appLanguage
+                        )
+                    }
+                    Text(title)
+                },
                 navigationIcon = {
                     TextButton(onClick = { viewModel.handleIntent(AnimeDetailIntent.NavigateBack) }) {
                         Text("← 返回")
@@ -105,6 +121,7 @@ fun AnimeDetailScreen(
                 uiState.anime != null -> {
                     AnimeDetailContent(
                         anime = uiState.anime!!,
+                        appLanguage = appLanguage,
                         onIntent = viewModel::handleIntent
                     )
                 }
@@ -155,6 +172,7 @@ private fun ErrorContent(
 @Composable
 private fun AnimeDetailContent(
     anime: AnimeDetailData,
+    appLanguage: AppLanguage,
     onIntent: (AnimeDetailIntent) -> Unit
 ) {
     LazyColumn(
@@ -162,7 +180,11 @@ private fun AnimeDetailContent(
     ) {
         // 1. 封面头部区域（带模糊背景）
         item {
-            HeaderSection(anime = anime, onIntent = onIntent)
+            HeaderSection(
+                anime = anime,
+                appLanguage = appLanguage,
+                onIntent = onIntent
+            )
         }
         
         // 2. 评分和统计信息
@@ -195,6 +217,7 @@ private fun AnimeDetailContent(
             item {
                 RelatedAnimeSection(
                     relatedAnime = anime.relatedAnime,
+                    appLanguage = appLanguage,
                     onAnimeClick = { animeId ->
                         onIntent(AnimeDetailIntent.OnRelatedAnimeClick(animeId))
                     }
@@ -207,6 +230,7 @@ private fun AnimeDetailContent(
             item {
                 RecommendationsSection(
                     recommendations = anime.recommendations,
+                    appLanguage = appLanguage,
                     onAnimeClick = { animeId ->
                         onIntent(AnimeDetailIntent.OnRecommendationClick(animeId))
                     }
@@ -227,8 +251,15 @@ private fun AnimeDetailContent(
 @Composable
 private fun HeaderSection(
     anime: AnimeDetailData,
+    appLanguage: AppLanguage,
     onIntent: (AnimeDetailIntent) -> Unit
 ) {
+    val displayTitle = resolveTitle(
+        defaultTitle = anime.title,
+        titleEnglish = anime.titleEnglish,
+        titleJapanese = anime.titleJapanese,
+        language = appLanguage
+    )
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -277,7 +308,7 @@ private fun HeaderSection(
             ) {
                 AsyncImage(
                     model = anime.imageUrl,
-                    contentDescription = anime.title,
+                    contentDescription = displayTitle,
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop
                 )
@@ -291,7 +322,7 @@ private fun HeaderSection(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text(
-                    text = anime.title,
+                    text = displayTitle,
                     style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface
@@ -591,6 +622,7 @@ private fun ProductionSection(anime: AnimeDetailData) {
 @Composable
 private fun RelatedAnimeSection(
     relatedAnime: List<AnimeItem>,
+    appLanguage: AppLanguage,
     onAnimeClick: (Int) -> Unit
 ) {
     Column(
@@ -614,6 +646,7 @@ private fun RelatedAnimeSection(
             ) { anime ->
                 SmallAnimeCard(
                     anime = anime,
+                    appLanguage = appLanguage,
                     onClick = { onAnimeClick(anime.id) }
                 )
             }
@@ -627,6 +660,7 @@ private fun RelatedAnimeSection(
 @Composable
 private fun RecommendationsSection(
     recommendations: List<AnimeItem>,
+    appLanguage: AppLanguage,
     onAnimeClick: (Int) -> Unit
 ) {
     Column(
@@ -650,6 +684,7 @@ private fun RecommendationsSection(
             ) { anime ->
                 SmallAnimeCard(
                     anime = anime,
+                    appLanguage = appLanguage,
                     onClick = { onAnimeClick(anime.id) }
                 )
             }
@@ -663,8 +698,15 @@ private fun RecommendationsSection(
 @Composable
 private fun SmallAnimeCard(
     anime: AnimeItem,
+    appLanguage: AppLanguage,
     onClick: () -> Unit
 ) {
+    val displayTitle = resolveTitle(
+        defaultTitle = anime.title,
+        titleEnglish = anime.titleEnglish,
+        titleJapanese = anime.titleJapanese,
+        language = appLanguage
+    )
     Card(
         onClick = onClick,
         modifier = Modifier.width(120.dp)
@@ -678,7 +720,7 @@ private fun SmallAnimeCard(
             ) {
                 AsyncImage(
                     model = anime.imageUrl,
-                    contentDescription = anime.title,
+                    contentDescription = displayTitle,
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop
                 )
@@ -689,7 +731,7 @@ private fun SmallAnimeCard(
                 verticalArrangement = Arrangement.spacedBy(4.dp)
             ) {
                 Text(
-                    text = anime.title,
+                    text = displayTitle,
                     style = MaterialTheme.typography.bodySmall,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis

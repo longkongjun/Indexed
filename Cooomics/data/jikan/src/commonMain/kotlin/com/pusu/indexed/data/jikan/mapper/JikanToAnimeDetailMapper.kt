@@ -50,6 +50,8 @@ class JikanToAnimeDetailMapper {
         return AnimeItem(
             id = anime.malId,
             title = anime.title,
+            titleEnglish = anime.titleEnglish,
+            titleJapanese = anime.titleJapanese,
             imageUrl = anime.images.jpg?.imageUrl ?: "",
             score = anime.score,
             type = anime.type,

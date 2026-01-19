@@ -8,6 +8,8 @@ package com.pusu.indexed.domain.anime.model
  * 
  * @property id 动漫唯一标识（MyAnimeList ID）
  * @property title 动漫标题
+ * @property titleEnglish 英文标题
+ * @property titleJapanese 日文标题
  * @property imageUrl 封面图片 URL
  * @property score 评分（0-10分）
  * @property rank 排名
@@ -21,6 +23,8 @@ package com.pusu.indexed.domain.anime.model
 data class AnimeItem(
     val id: Int,
     val title: String,
+    val titleEnglish: String? = null,
+    val titleJapanese: String? = null,
     val imageUrl: String,
     val score: Double? = null,
     val rank: Int? = null,

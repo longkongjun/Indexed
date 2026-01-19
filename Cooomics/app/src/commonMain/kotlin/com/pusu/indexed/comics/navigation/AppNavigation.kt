@@ -1,7 +1,12 @@
 package com.pusu.indexed.comics.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
@@ -10,6 +15,7 @@ import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import androidx.savedstate.serialization.SavedStateConfiguration
 import com.pusu.indexed.comics.splash.SplashScreen
+import com.pusu.indexed.core.locale.AppLanguage
 import com.pusu.indexed.shared.feature.animedetail.AnimeDetailScreen
 import com.pusu.indexed.shared.feature.animedetail.animelist.AnimeListScreen
 import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListType
@@ -18,13 +24,13 @@ import com.pusu.indexed.shared.feature.discover.DiscoverScreen
 import com.pusu.indexed.shared.feature.discover.presentation.DiscoverViewModel
 import com.pusu.indexed.shared.feature.search.SearchScreen
 import com.pusu.indexed.shared.feature.search.presentation.SearchViewModel
+import com.pusu.indexed.shared.feature.settings.SettingsScreen
 import com.pusu.indexed.shared.feature.subscription.SubscriptionScreen
 import com.pusu.indexed.shared.feature.subscription.presentation.SubscriptionViewModel
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
-import androidx.compose.runtime.LaunchedEffect
 import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListViewModel
 import com.pusu.indexed.shared.feature.discover.filter.FilterScreen
 import com.pusu.indexed.shared.feature.discover.filter.presentation.FilterViewModel
@@ -53,6 +59,9 @@ sealed interface Screen {
     data object Subscription : Screen, NavKey
 
     @Serializable
+    data object Settings : Screen, NavKey
+
+    @Serializable
     data class AnimeDetail(val animeId: Int) : Screen, NavKey
 
     @Serializable
@@ -72,6 +81,7 @@ private val savedStateConfig = SavedStateConfiguration {
             subclass(Screen.Search::class)
             subclass(Screen.Filter::class)
             subclass(Screen.Subscription::class)
+            subclass(Screen.Settings::class)
             subclass(Screen.AnimeDetail::class)
             subclass(Screen.AnimeList::class)
         }
@@ -87,6 +97,7 @@ private val savedStateConfig = SavedStateConfiguration {
 fun AppNavigation() {
     // 创建导航返回栈，从 Splash 页面开始，使用配置好的序列化模块
     val backStack = rememberNavBackStack(savedStateConfig, Screen.Splash)
+    var appLanguage by rememberSaveable { mutableStateOf(AppLanguage.Chinese) }
 
     // 使用 NavDisplay 显示当前导航状态
     // 添加 ViewModel 装饰器，使每个 NavEntry 都有自己的 ViewModelStore
@@ -118,6 +129,7 @@ fun AppNavigation() {
 
                 DiscoverScreen(
                     viewModel = viewModel,
+                    appLanguage = appLanguage,
                     onNavigateToDetail = { animeId ->
                         backStack.add(Screen.AnimeDetail(animeId))
                     },
@@ -129,6 +141,9 @@ fun AppNavigation() {
                     },
                     onNavigateToSubscription = {
                         backStack.add(Screen.Subscription)
+                    },
+                    onNavigateToSettings = {
+                        backStack.add(Screen.Settings)
                     },
                     onNavigateToList = { listType ->
                         backStack.add(Screen.AnimeList(listType.name))
@@ -143,6 +158,7 @@ fun AppNavigation() {
 
                 SearchScreen(
                     viewModel = viewModel,
+                    appLanguage = appLanguage,
                     onNavigateBack = {
                         backStack.removeLastOrNull()
                     },
@@ -183,6 +199,17 @@ fun AppNavigation() {
                 )
             }
 
+            // 设置页
+            entry<Screen.Settings> {
+                SettingsScreen(
+                    currentLanguage = appLanguage,
+                    onLanguageChange = { appLanguage = it },
+                    onNavigateBack = {
+                        backStack.removeLastOrNull()
+                    }
+                )
+            }
+
             // 动漫详情页
             entry<Screen.AnimeDetail> { screen ->
                 // 使用 Koin Compose 注入 ViewModel（每次导航创建新实例）
@@ -191,6 +218,7 @@ fun AppNavigation() {
                 AnimeDetailScreen(
                     animeId = screen.animeId,
                     viewModel = viewModel,
+                    appLanguage = appLanguage,
                     onNavigateBack = {
                         backStack.removeLastOrNull()
                     },
@@ -214,6 +242,7 @@ fun AppNavigation() {
 
                 AnimeListScreen(
                     viewModel = viewModel,
+                    appLanguage = appLanguage,
                     onNavigateBack = {
                         backStack.removeLastOrNull()
                     },

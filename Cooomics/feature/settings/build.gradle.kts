@@ -16,24 +16,11 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                // Compose
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
-                
-                // Domain layer (业务逻辑)
-                implementation(project(":domain:anime"))
-
-                // Core utils
                 implementation(project(":core:utils"))
-
-                // Feature modules (for navigation types)
-                implementation(project(":feature:anime-detail"))
-                
-                // 图片加载
-                implementation(libs.coil.compose)
-                implementation(libs.coil.network.ktor)
             }
         }
         val androidMain by getting {
@@ -50,7 +37,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.pusu.indexed.shared.discover"
+    namespace = "com.pusu.indexed.shared.settings"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     defaultConfig { minSdk = libs.versions.android.minSdk.get().toInt() }
     compileOptions {
