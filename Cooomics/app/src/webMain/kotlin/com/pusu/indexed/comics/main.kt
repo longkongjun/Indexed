@@ -1,6 +1,5 @@
 package com.pusu.indexed.comics
 
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.window.ComposeViewport
@@ -24,8 +23,6 @@ fun main() {
             koinInstance = koinApp.koin
         }
 
-        MaterialTheme {
-            AppNavigation()
-        }
+        AppNavigation()
     }
 }

@@ -14,8 +14,10 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import androidx.savedstate.serialization.SavedStateConfiguration
+import com.pusu.indexed.comics.theme.AppTheme
 import com.pusu.indexed.comics.splash.SplashScreen
 import com.pusu.indexed.core.locale.AppLanguage
+import com.pusu.indexed.core.theme.defaultThemePresets
 import com.pusu.indexed.shared.feature.animedetail.AnimeDetailScreen
 import com.pusu.indexed.shared.feature.animedetail.animelist.AnimeListScreen
 import com.pusu.indexed.shared.feature.animedetail.animelist.presentation.AnimeListType
@@ -98,29 +100,33 @@ fun AppNavigation() {
     // 创建导航返回栈，从 Splash 页面开始，使用配置好的序列化模块
     val backStack = rememberNavBackStack(savedStateConfig, Screen.Splash)
     var appLanguage by rememberSaveable { mutableStateOf(AppLanguage.Chinese) }
+    val themePresets = remember { defaultThemePresets() }
+    var themePresetId by rememberSaveable { mutableStateOf(themePresets.first().id) }
+    val currentTheme = themePresets.firstOrNull { it.id == themePresetId } ?: themePresets.first()
 
     // 使用 NavDisplay 显示当前导航状态
     // 添加 ViewModel 装饰器，使每个 NavEntry 都有自己的 ViewModelStore
-    NavDisplay(
-        backStack = backStack,
-        entryDecorators = listOf(
-            // 注意：装饰器顺序很重要！
-            // SaveableStateHolder 必须在 ViewModelStore 之前，以支持 SavedStateHandle
-            rememberSaveableStateHolderNavEntryDecorator(),
-            // ViewModelStore 装饰器：为每个导航目的地提供独立的 ViewModel 存储
-            rememberViewModelStoreNavEntryDecorator(),
-        ),
-        entryProvider = entryProvider {
-            // 启动页
-            entry<Screen.Splash> {
-                SplashScreen(
-                    onSplashFinished = {
-                        // 启动完成后，导航到发现页并清除启动页
-                        backStack.clear()
-                        backStack.add(Screen.Discover)
-                    }
-                )
-            }
+    AppTheme(preset = currentTheme) {
+        NavDisplay(
+            backStack = backStack,
+            entryDecorators = listOf(
+                // 注意：装饰器顺序很重要！
+                // SaveableStateHolder 必须在 ViewModelStore 之前，以支持 SavedStateHandle
+                rememberSaveableStateHolderNavEntryDecorator(),
+                // ViewModelStore 装饰器：为每个导航目的地提供独立的 ViewModel 存储
+                rememberViewModelStoreNavEntryDecorator(),
+            ),
+            entryProvider = entryProvider {
+                // 启动页
+                entry<Screen.Splash> {
+                    SplashScreen(
+                        onSplashFinished = {
+                            // 启动完成后，导航到发现页并清除启动页
+                            backStack.clear()
+                            backStack.add(Screen.Discover)
+                        }
+                    )
+                }
 
             // 发现页（主页）
             entry<Screen.Discover> {
@@ -204,6 +210,9 @@ fun AppNavigation() {
                 SettingsScreen(
                     currentLanguage = appLanguage,
                     onLanguageChange = { appLanguage = it },
+                    themeOptions = themePresets,
+                    currentThemeId = themePresetId,
+                    onThemeChange = { themePresetId = it.id },
                     onNavigateBack = {
                         backStack.removeLastOrNull()
                     }
@@ -251,6 +260,7 @@ fun AppNavigation() {
                     }
                 )
             }
-        }
-    )
+            }
+        )
+    }
 }

@@ -1,6 +1,5 @@
 package com.pusu.indexed.comics
 
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.window.ComposeUIViewController
 import com.pusu.indexed.comics.di.appModule
@@ -26,9 +25,7 @@ fun IOSApp() {
         koinInstance = koinApp.koin
     }
     
-    MaterialTheme {
-        AppNavigation()
-    }
+    AppNavigation()
 }
 
 @OptIn(ExperimentalForeignApi::class)

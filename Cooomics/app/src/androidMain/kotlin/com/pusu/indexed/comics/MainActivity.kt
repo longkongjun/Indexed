@@ -3,7 +3,6 @@ package com.pusu.indexed.comics
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.MaterialTheme
 import com.pusu.indexed.comics.di.appModule
 import com.pusu.indexed.comics.navigation.AppNavigation
 import com.pusu.indexed.comics.platform.createHttpClient
@@ -26,9 +25,7 @@ class MainActivity : ComponentActivity() {
         }
 
         setContent {
-            MaterialTheme {
-                AppNavigation()
-            }
+            AppNavigation()
         }
     }
 }
