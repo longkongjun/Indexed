@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.*
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -278,6 +279,7 @@ private fun EmptyContent() {
 /**
  * 内容列表
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ContentList(
     uiState: DiscoverUiState,
@@ -285,76 +287,81 @@ private fun ContentList(
     onIntent: (DiscoverIntent) -> Unit,
     onSeeAllClick: (AnimeListType) -> Unit
 ) {
-    LazyColumn(
-        modifier = Modifier.fillMaxSize(),
-        contentPadding = PaddingValues(vertical = 16.dp)
+    PullToRefreshBox(
+        isRefreshing = uiState.isRefreshing,
+        onRefresh = { onIntent(DiscoverIntent.Refresh) }
     ) {
-        // 热门动漫区域
-        if (uiState.trendingAnime.isNotEmpty()) {
-            item {
-                SectionHeader(
-                    title = "🔥 热门动漫",
-                    onSeeAllClick = { 
-                        onSeeAllClick(AnimeListType.Trending)
-                    }
-                )
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(vertical = 16.dp)
+        ) {
+            // 热门动漫区域
+            if (uiState.trendingAnime.isNotEmpty()) {
+                item {
+                    SectionHeader(
+                        title = "🔥 热门动漫",
+                        onSeeAllClick = { 
+                            onSeeAllClick(AnimeListType.Trending)
+                        }
+                    )
+                }
+                
+                item {
+                    TrendingAnimeRow(
+                        animeList = uiState.trendingAnime,
+                        appLanguage = appLanguage,
+                        onAnimeClick = { animeId ->
+                            onIntent(DiscoverIntent.OnAnimeClick(animeId))
+                        }
+                    )
+                    Spacer(modifier = Modifier.height(24.dp))
+                }
             }
             
-            item {
-                TrendingAnimeRow(
-                    animeList = uiState.trendingAnime,
-                    appLanguage = appLanguage,
-                    onAnimeClick = { animeId ->
-                        onIntent(DiscoverIntent.OnAnimeClick(animeId))
-                    }
-                )
-                Spacer(modifier = Modifier.height(24.dp))
-            }
-        }
-        
-        // 本季新番区域
-        if (uiState.currentSeasonAnime.isNotEmpty()) {
-            item {
-                SectionHeader(
-                    title = "📺 本季新番",
-                    onSeeAllClick = { 
-                        onSeeAllClick(AnimeListType.CurrentSeason)
-                    }
-                )
-            }
-            
-            item {
-                TrendingAnimeRow(
-                    animeList = uiState.currentSeasonAnime,
-                    appLanguage = appLanguage,
-                    onAnimeClick = { animeId ->
-                        onIntent(DiscoverIntent.OnAnimeClick(animeId))
-                    }
-                )
-                Spacer(modifier = Modifier.height(24.dp))
-            }
-        }
-        
-        // 排行榜区域
-        if (uiState.topAnime.isNotEmpty()) {
-            item {
-                SectionHeader(
-                    title = "🏆 排行榜",
-                    onSeeAllClick = { 
-                        onSeeAllClick(AnimeListType.TopRanked)
-                    }
-                )
+            // 本季新番区域
+            if (uiState.currentSeasonAnime.isNotEmpty()) {
+                item {
+                    SectionHeader(
+                        title = "📺 本季新番",
+                        onSeeAllClick = { 
+                            onSeeAllClick(AnimeListType.CurrentSeason)
+                        }
+                    )
+                }
+                
+                item {
+                    TrendingAnimeRow(
+                        animeList = uiState.currentSeasonAnime,
+                        appLanguage = appLanguage,
+                        onAnimeClick = { animeId ->
+                            onIntent(DiscoverIntent.OnAnimeClick(animeId))
+                        }
+                    )
+                    Spacer(modifier = Modifier.height(24.dp))
+                }
             }
             
-            item {
-                TrendingAnimeRow(
-                    animeList = uiState.topAnime,
-                    appLanguage = appLanguage,
-                    onAnimeClick = { animeId ->
-                        onIntent(DiscoverIntent.OnAnimeClick(animeId))
-                    }
-                )
-                Spacer(modifier = Modifier.height(24.dp))
+            // 排行榜区域
+            if (uiState.topAnime.isNotEmpty()) {
+                item {
+                    SectionHeader(
+                        title = "🏆 排行榜",
+                        onSeeAllClick = { 
+                            onSeeAllClick(AnimeListType.TopRanked)
+                        }
+                    )
+                }
+                
+                item {
+                    TrendingAnimeRow(
+                        animeList = uiState.topAnime,
+                        appLanguage = appLanguage,
+                        onAnimeClick = { animeId ->
+                            onIntent(DiscoverIntent.OnAnimeClick(animeId))
+                        }
+                    )
+                    Spacer(modifier = Modifier.height(24.dp))
+                }
             }
         }
     }
