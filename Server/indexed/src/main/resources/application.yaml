@@ -1,6 +1,15 @@
 ktor:
     application:
         modules:
-            - com.pusu.ApplicationKt.module
+            - com.indexed.server.ApplicationKt.module
     deployment:
         port: 8080
+
+# 使用者可配：资源来源目录、整理输出目录（与 SourceConfig / ScrapingOutputConfig 读取键一致）
+indexed:
+    # 资源来源：原始文件路径，程序只读。SourceConfig 读 indexed.source.root
+    source:
+        root: /data/source
+    # 整理输出：整理后展示根路径，程序写入链接与刮削元数据。ScrapingOutputConfig 读 indexed.scraping.organized
+    scraping:
+        organized: /data/organized

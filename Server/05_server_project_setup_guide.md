@@ -170,7 +170,7 @@
   - 在 `Server/` 下增加 `Dockerfile`：多阶段构建，先阶段用 Gradle/Maven 打出一个可执行 jar（或 fat jar），再阶段用带 JRE 的基础镜像（如 `eclipse-temurin:17-jre-alpine`）只拷贝 jar 和启动命令。
   - 通过环境变量或挂载配置文件传入端口、数据库路径、库根目录等；库根目录需用 `-v` 挂载到容器内，便于访问宿主机上的资源文件。
 - **运行示例**（仅示意）：  
-  `docker build -t indexed-server ./Server && docker run -p 8080:8080 -v /path/to/library:/data indexed-server`
+  `docker build -t indexed-server ./Server && docker run -p 8080:8080 -v /path/to/source:/data/source -v /path/to/organized:/data/organized indexed-server`
 - 这样**运行服务的机器上不需要安装 JDK 或 JRE**，只要 Docker 即可。
 
 ### 方式二：仅 JRE 运行（机器上有 JRE 即可，无需 JDK）
@@ -194,6 +194,92 @@
 | **Native Image** | 否 | 可选；构建复杂，适合追求冷启动与体积时再考虑 |
 
 若你希望「机器上没有 JDK 也能跑」，优先在第六步或后续步骤中加上 **Dockerfile + 多阶段构建**，并在小结表中增加「是否提供 Docker 镜像」的选项。
+
+---
+
+## 程序应定义的基本目录与用户可配置项
+
+### 使用者关心的目录（仅两个）
+
+| 目录 | 用途 | 说明 |
+|------|------|------|
+| **资源来源目录（source）** | 原始文件 | 用户资源所在目录，程序**只读**，不修改 |
+| **整理输出目录（scraping.organized）** | 整理后展示 | 程序以链接/复制方式引用资源并写入刮削元数据，供「已整理」视图 |
+
+使用者只需在配置或环境变量中指定这两项，其余目录不需要关心。
+
+### 程序内部目录（仅开发者需关心）
+
+data、logs、cache、temp 为程序内部使用，**不向使用者暴露**，**程序内固定**，不读环境变量与配置文件：
+
+- **应用主目录** base = `{user.home}/.indexed`
+- **内部路径**：data、logs、cache、temp 为 base 下子目录（`{base}/data` 等）
+
+Docker 下若需持久化，可将该目录挂载为卷，例如 `-v /宿主机路径:/root/.indexed`（以 root 运行容器时）。
+
+### 资源来源目录 vs 整理输出目录
+
+- **资源来源目录**：用户自己维护的原始文件（漫画、影视等）。程序只做扫描、识别、刮削元数据，**不移动、不删除、不修改**该目录下内容。
+- **整理输出目录**：程序根据规则与刮削结果，在该目录下生成「整理后的目录结构」，通过**硬链接 / 软链接 / 复制**等方式引用资源来源中的文件，并写入刮削得到的元数据（如 NFO、封面等）。客户端/后台展示的「已整理」视图基于此目录。
+
+---
+
+## 服务端文件管理与 Docker 卷
+
+### 运行时：服务进程和文件是怎么交互的
+
+可以记住一句话：**服务程序只是一个普通进程，它用「某个路径」去读/写文件，操作系统负责把这次读/写落到真正的磁盘上。** 交互关系如下。
+
+1. **程序里做的事**  
+   例如配置里资源来源根是 `/data/source`，数据库里有一条资源相对路径 `comics/某漫画/第1话.pdf`。  
+   存储服务会拼出绝对路径：`/data/source/comics/某漫画/第1话.pdf`，然后像平时写代码一样：
+   - 读：`File(path).inputStream().use { ... }` 或 `Files.newInputStream(Path.of(path))`
+   - 写：`File(path).outputStream().use { ... }`
+   - 列表：`File(path).listFiles()`  
+   程序**不关心**这个路径是「本机」还是「容器里」的，它只认「当前进程能看到的路径」。
+
+2. **进程「看到的」是哪个路径**  
+   - **本机直接运行**：进程跑在你这台机器上，看到的文件系统就是本机磁盘。  
+     你配置 `SOURCE_ROOT=/home/user/comics`，那 `File("/home/user/comics/xxx")` 读的就是本机 `/home/user/comics/xxx`，数据从本机磁盘读出来。
+   - **Docker 里运行**：进程跑在**容器内部**，看到的文件系统是**容器自己的根文件系统**。  
+     你 `docker run -v /home/user/comics:/data/source ...` 之后，容器里就多了一个目录 `/data/source`，它和宿主机的 `/home/user/comics` **是同一块磁盘内容**（ bind mount）。  
+     程序里配置 `SOURCE_ROOT=/data/source`，然后 `File("/data/source/xxx")`：  
+     - 在进程看来：读的是「容器里的 `/data/source/xxx`」；  
+     - 在操作系统看来：这个路径被挂载到了宿主机 `/home/user/comics`，所以实际读的是**宿主机**上的 `/home/user/comics/xxx`，数据从宿主机的磁盘读出来。
+
+3. **数据流一句话**  
+   - 本机运行：**程序读/写路径 P → 操作系统 → 本机磁盘上的 P**。  
+   - Docker 运行：**程序读/写路径 P（容器内路径）→ 操作系统发现 P 是挂载点 → 转到宿主机对应目录 → 宿主机磁盘**。  
+   所以：和「服务器上的文件」交互，就是**进程对某个路径做读/写，该路径在本机就是本机磁盘，在 Docker 里就通过卷映射到宿主机磁盘**，程序代码不用改，只要把「资源来源根」配成当前环境能看到的路径即可。
+
+### 服务端文件怎么管理（配置与约定）
+
+- **资源来源目录（source）**：架构里原始资源文件都来自此目录。服务端**不写死路径**，通过**配置**指定（如 `application.yaml` 或环境变量 `SOURCE_ROOT`）。
+- **整理输出目录（organized）**：刮削与整理后的展示目录，配置键 `indexed.scraping.organized` 或环境变量 `ORGANIZED_PATH`。
+- **存储服务**：对资源来源只做「在来源根下的相对路径」的读；对整理输出做写（链接/复制 + 元数据）。
+- **路径约定**：
+  - 数据库/配置里只存**相对资源来源根的路径**（如 `comics/某漫画/第1话.pdf`），不存宿主机绝对路径，这样换机器或 Docker 换挂载点也不用改数据。
+  - 运行时用「当前资源来源根 + 相对路径」拼出真实路径再读；整理输出用「整理输出目录 + 整理后结构」写。
+
+### Docker 部署时卷怎么处理
+
+- **目的**：容器内没有宿主机上的资源目录，所以要用 **卷挂载** 把宿主机的目录「映射」进容器，让服务端进程在容器里访问到的路径实际指向宿主机磁盘。
+- **做法**：
+  - `docker run -v 宿主机路径:容器内路径 ...`  
+    例如：`-v /home/user/comics:/data/source -v /home/user/organized:/data/organized`  
+    表示：宿主机资源目录在容器里为 `/data/source`，整理输出目录在容器里为 `/data/organized`。
+  - 服务端**配置里填容器内路径**（如 `SOURCE_ROOT=/data/source`、`ORGANIZED_PATH=/data/organized`），应用只认容器内路径；真实文件在宿主机，由 Docker 透明地挂载进来。
+- **数据库/配置**：若希望数据持久、不随容器删除而丢，也可把数据库文件或配置目录挂载出去，例如：  
+  `-v /host/app/data:/data/app`，应用把 SQLite 或 `application.yaml` 放在 `/data/app`，即落在宿主机 `/host/app/data`。
+
+### 小结
+
+| 环境 | 资源来源/整理输出在配置里的值 | 实际文件位置 |
+|------|-------------------------------|--------------|
+| 本机直接运行 | 本机绝对路径，如 `/home/user/comics`、`/home/user/organized` | 本机磁盘 |
+| Docker 运行 | **容器内**路径，如 `/data/source`、`/data/organized` | 宿主机目录通过 `-v` 挂载到容器内对应路径 |
+
+这样同一套「来源根 + 相对路径」「整理输出目录 + 结构」的逻辑，本机与 Docker 通用；只有路径本身通过配置/环境变量区分本机还是容器内。
 
 ---
 
